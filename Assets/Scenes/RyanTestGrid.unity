@@ -354,11 +354,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5fb2ff40249053f4381f1331afc43ac8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.2055
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5fb2ff40249053f4381f1331afc43ac8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.9687
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5fb2ff40249053f4381f1331afc43ac8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -419,11 +419,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 7664850d03e4ed04eb637d71d1589db5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.705
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 7664850d03e4ed04eb637d71d1589db5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.6548
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 7664850d03e4ed04eb637d71d1589db5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -580,7 +580,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: 1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -731,6 +731,14 @@ PrefabInstance:
     - target: {fileID: 2127131417445619321, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526548669807865476, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526548669807865476, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
+      propertyPath: m_Size.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3857099363662788551, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag

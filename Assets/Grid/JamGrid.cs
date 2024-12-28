@@ -12,6 +12,8 @@ public class JamGrid : MonoBehaviour
     int _width, _height = 4;
     public int Width { get => _width; }
     public int Height { get => _height; }
+    public float CellWidth { get => (bottomRight.transform.position.x - topLeft.transform.position.x) / _width; }
+    public float CellHeight { get => (bottomRight.transform.position.y - topLeft.transform.position.y) / _height; }
     public float WorldWidth { get => bottomRight.transform.position.x - topLeft.transform.position.x; }
     public float WorldHeight { get => bottomRight.transform.position.y - topLeft.transform.position.y; }
 
@@ -19,9 +21,20 @@ public class JamGrid : MonoBehaviour
     Transform topLeft;
     [SerializeField]
     Transform bottomRight;
+    [SerializeField]
+    SpriteRenderer gridTile;
 
     void Awake() {
         Debug.Assert(_width != 0 && _height != 0, "0 Height or Width");
+        Debug.Assert(topLeft is not null && bottomRight is not null, "Grid missing corners");
+        Debug.Assert(gridTile is not null, "Missing tile sprite renderer");
+    }
+
+    void Update() {
+        gridTile.drawMode = SpriteDrawMode.Tiled;
+        gridTile.size = new Vector2(_width, _height);
+        gridTile.transform.localScale = new Vector3(CellWidth, CellHeight, 1);
+        gridTile.transform.position = (bottomRight.transform.position + topLeft.transform.position) / 2;
     }
 
     public bool Connect(JamGridEntity entity) {
