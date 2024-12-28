@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 1619688456}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -702,7 +702,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 55
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: d99d65791bce3414fa0ec488cc9d5888, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: 0
+  m_RendererIndex: 1
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -910,19 +910,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1072085846557026582, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1072085846557026582, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2049721957151581682, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: _width
-      value: 16
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2049721957151581682, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: _height
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2049721957151581682, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: gridTilemap
@@ -1006,11 +1006,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8374791162576072304, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8374791162576072304, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8938872701725865127, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_fontAsset

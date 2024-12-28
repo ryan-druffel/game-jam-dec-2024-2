@@ -62,16 +62,16 @@ public class EffectCardUI : MonoBehaviour
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(gridBox.GetDisplay(), Input.mousePosition, Camera.main, out localPoint);
 
-        Vector2 localPointFromCenter = localPoint / gridBox.GetDisplay().rect.size;
+        Vector2 localPointFromCenter = localPoint * new Vector2(1.0f, -1.0f) / gridBox.GetDisplay().rect.size;
 
         // Compute CRT Distortion
         Vector2 localPointFromCenterAbs = localPointFromCenter.Abs();
         Vector2 distortion = localPointFromCenter * Mathf.Pow(Vector2.Dot(localPointFromCenterAbs, localPointFromCenterAbs), 2);
 
         // Compute grid position
-        Vector2 gridPosNormalized = (localPointFromCenter + new Vector2(0.5f, 0.5f)) /*+ distortion*/;
-        int col = Mathf.RoundToInt(gridPosNormalized.x * gridBox.GetGrid().Width + 0.5f);
-        int row = Mathf.RoundToInt(gridPosNormalized.y * gridBox.GetGrid().Height + 0.5f);
+        Vector2 gridPosNormalized = (localPointFromCenter + new Vector2(0.5f, 0.5f)) + distortion;
+        int col = Mathf.RoundToInt(gridPosNormalized.x * gridBox.GetGrid().Width - 0.5f);
+        int row = Mathf.RoundToInt(gridPosNormalized.y * gridBox.GetGrid().Height - 0.5f);
 
         return new Vector2Int(col, row);
     }
