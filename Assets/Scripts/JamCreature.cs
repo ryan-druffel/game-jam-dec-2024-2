@@ -1,21 +1,12 @@
 using System;
-using Unity.VisualScripting;
+using System.Linq;
+
 using UnityEngine;
 
 public class JamCreature : JamGridActor
 {
-
     [SerializeField]
     private bool autoconnect = false;
-    [SerializeField]
-    private int initRow = 0;
-    [SerializeField]
-    private int initColumn = 0;
-    [SerializeField]
-    private JamGrid grid;
-
-    [SerializeField]
-    public JamGridEntity gridData;
 
     [SerializeField]
     public Vector2Int move;
@@ -50,7 +41,12 @@ public class JamCreature : JamGridActor
     void FixedUpdate()
     {
     }
-    
+
+    public override bool IsOfType(string type)
+    {
+        return type.ToLower().Equals(ActorTypes.Creature.ToLower());
+    }
+
     Vector2 animWalkStart = Vector2.zero;
     Vector2 animWalkDest = Vector2.zero;
     bool isWalking = false;
@@ -74,13 +70,22 @@ public class JamCreature : JamGridActor
     }
 
     public override void PreEvaluate() {
+        // look at the tile we're about to enter
+        var entities = grid.GetCellEntities(gridData.Column + move.x, gridData.Row + move.y);
 
+        // are any of these a wall?
+        if (entities.Any(i => i.GetActor().IsOfType(ActorTypes.Wall)))
+        {
+            Debug.Log("There's a wall here!");
+            // try to turn around
+            move *= -1;
+        }
     }
 
     public override void Step() {
         StartWalkAnimation(gridData.GetRelativeXY(move.x, move.y));
         gridData.MoveRelative(move.x, move.y);
-        Debug.Log(gridData.GetXY());
+        Debug.Log(transform.name + " is at " + gridData.GetColumn() + ", " + gridData.GetRow());
     }
 
     public override void PostEvaluate() {

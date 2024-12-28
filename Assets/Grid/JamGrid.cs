@@ -146,8 +146,8 @@ public class JamGridEntity
     public void MoveRelative(int colDelta, int rowDelta)
     {
         if (isOnGrid) {
-            Column = (Column + colDelta) % _grid.Width;
-            Row = (Row + rowDelta) % _grid.Height;
+            Column = ((Column + colDelta) % _grid.Width + _grid.Width) % _grid.Width;
+            Row = ((Row + rowDelta) % _grid.Height + _grid.Height) % _grid.Height;
         } else {
             Column += colDelta;
             Row += rowDelta;
@@ -207,9 +207,25 @@ public class JamGridEntity
 
 public abstract class JamGridActor : MonoBehaviour
 {
+    [SerializeField]
+    public JamGridEntity gridData;
+    [SerializeField]
+    protected int initColumn = 0;
+    [SerializeField]
+    protected int initRow = 0;
+    [SerializeField]
+    protected JamGrid grid;
+
     public abstract JamGridEntity GetGridEntity();
     public abstract int GetPriority();
+    public abstract bool IsOfType(string type);
     public abstract void PreEvaluate();
     public abstract void Step();
     public abstract void PostEvaluate();
+}
+
+public class ActorTypes
+{
+    public static string Creature { get { return "Creature"; } }
+    public static string Wall { get { return "Wall"; } }
 }

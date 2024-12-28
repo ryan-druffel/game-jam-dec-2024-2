@@ -27,7 +27,7 @@ public class GridWrapDuplication : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (actor is not null && duplicateThis is not null) {
+        if (actor != null && duplicateThis != null) {
             JamGridEntity gridData = actor.GetGridEntity();
             if (gridData.GetGridWorldWidth() != 0 && gridData.GetGridWorldHeight() != 0) {
                 AnimateWrapImages(Time.deltaTime);
