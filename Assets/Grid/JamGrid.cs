@@ -227,10 +227,18 @@ public abstract class JamGridActor : MonoBehaviour
     public abstract void PreEvaluate();
     public abstract void Step();
     public abstract void PostEvaluate();
+
+    // auto disconnect from grid on destruction
+    protected void OnDestroy()
+    {
+        gridData.DisconnectFromGrid();
+    }
 }
 
 public class ActorTypes
 {
     public static string Creature { get { return "Creature"; } }
     public static string Wall { get { return "Wall"; } }
+    public static string Cyan { get { return "Cyan"; } }
+    public static string Red { get { return "Red"; } }
 }
