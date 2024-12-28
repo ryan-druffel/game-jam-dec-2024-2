@@ -41,7 +41,6 @@ public class JamCoordinator : MonoBehaviour
     void StepGridOccupants() {
         // Get occupants
         List<JamGridEntity> list = _grid.GetAllEntities();
-        Debug.Log(list.Count);
         // Pre Evaluate
         foreach (JamGridEntity entity in list) {
             if (entity.GetActor() is not null) {
@@ -52,7 +51,6 @@ public class JamCoordinator : MonoBehaviour
         foreach (JamGridEntity entity in list) {
             if (entity.GetActor() is not null) {
                 entity.GetActor().Step();
-                Debug.Log(entity.ID + ": (" + entity.Column + " ," + entity.Row + ")");
             }
         }
         // Post Evaluate
