@@ -12,6 +12,8 @@ public class JamGrid : MonoBehaviour
     int _width, _height = 4;
     public int Width { get => _width; }
     public int Height { get => _height; }
+    public float CellWidth { get => (bottomRight.transform.position.x - topLeft.transform.position.x) / _width; }
+    public float CellHeight { get => (bottomRight.transform.position.y - topLeft.transform.position.y) / _height; }
     public float WorldWidth { get => bottomRight.transform.position.x - topLeft.transform.position.x; }
     public float WorldHeight { get => bottomRight.transform.position.y - topLeft.transform.position.y; }
 
@@ -19,13 +21,20 @@ public class JamGrid : MonoBehaviour
     Transform topLeft;
     [SerializeField]
     Transform bottomRight;
-
     [SerializeField]
-    SpriteRenderer gridTilemap;
+    SpriteRenderer gridTile;
 
     void Awake() {
         Debug.Assert(_width != 0 && _height != 0, "0 Height or Width");
-        gridTilemap.size = new Vector2(Width, Height);
+        Debug.Assert(topLeft is not null && bottomRight is not null, "Grid missing corners");
+        Debug.Assert(gridTile is not null, "Missing tile sprite renderer");
+    }
+
+    void Update() {
+        gridTile.drawMode = SpriteDrawMode.Tiled;
+        gridTile.size = new Vector2(_width, _height);
+        gridTile.transform.localScale = new Vector3(CellWidth, CellHeight, 1);
+        gridTile.transform.position = (bottomRight.transform.position + topLeft.transform.position) / 2;
     }
 
     public bool Connect(JamGridEntity entity) {
@@ -90,13 +99,8 @@ public class JamGrid : MonoBehaviour
 
     public Vector2 GetCellXY(int col, int row)
     {
-        /*
         float x = topLeft.position.x + (bottomRight.position.x - topLeft.position.x) * ((float) (col + 0.5) / _width);
         float y = topLeft.position.y + (bottomRight.position.y - topLeft.position.y) * ((float) (row + 0.5) / _height);
-        */
-
-        float x = -(Width / 2f) + col + 0.5f;
-        float y = -(Height / 2f) + row + 0.5f;
         return new Vector2(x, y);
     }
 }

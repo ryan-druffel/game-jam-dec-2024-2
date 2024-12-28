@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 7919176009907612061}
   - component: {fileID: 7635324821735185639}
   - component: {fileID: 4823502190315997047}
+  - component: {fileID: 6070969660494866061}
   m_Layer: 0
   m_Name: BaseCreature
   m_TagString: Untagged
@@ -137,6 +138,8 @@ MonoBehaviour:
   initRow: 0
   initColumn: 0
   grid: {fileID: 0}
+  move: {x: 0, y: 0}
+  priority: 0
 --- !u!114 &4823502190315997047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,3 +154,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actor: {fileID: 7635324821735185639}
   duplicateThis: {fileID: 133110716555353550}
+--- !u!114 &6070969660494866061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3052775593466910787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f9a259d16a8554285e4a304ee51c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followMode: 0
+  spriteRenderer: {fileID: 133110716555353550}
