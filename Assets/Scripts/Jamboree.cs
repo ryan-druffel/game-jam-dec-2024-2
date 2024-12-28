@@ -4,13 +4,13 @@ using UnityEngine;
 
 // grid of integers representing id numbers
 // accompanying dictionary containing all elements with references to their numbers/grid spaces
-public class JamGrid
+public class JamGridClass
 {
-    Dictionary<int, JamEntity> _entities;
+    Dictionary<int, JamEntityClass> _entities;
     int[,] _grid;
     int _width, _height;
 
-    public JamGrid(int width, int height)
+    public JamGridClass(int width, int height)
     {
         // set up grid
         _width = width;
@@ -18,10 +18,10 @@ public class JamGrid
         _grid = new int[width, height];
 
         // setup dictionary
-        _entities = new Dictionary<int, JamEntity>();
+        _entities = new Dictionary<int, JamEntityClass>();
     }
 
-    public void AddEntity(JamEntity entity)
+    public void AddEntity(JamEntityClass entity)
     {
         _entities.Add(entity.ID, entity);
     }
@@ -36,12 +36,12 @@ public class JamGrid
         _grid[col, row] = value;
     }
 
-    public JamEntity[] GetAllEntities()
+    public JamEntityClass[] GetAllEntities()
     {
         return _entities.Values.ToArray();
     }
 
-    public JamEntity GetEntityFromID(int ID)
+    public JamEntityClass GetEntityFromID(int ID)
     {
         return _entities[ID];
     }
@@ -58,14 +58,14 @@ public class JamGrid
                 // add something maybe
                 if (Random.value < 0.25f)
                 {
-                    AddEntity(new JamEntity(c, r));
+                    AddEntity(new JamEntityClass(c, r));
                 }
             }
         }
     }
 }
 
-public class JamEntity
+public class JamEntityClass
 {
     static int _usedIDs = 1; // ensures all IDs are unique
     SpriteRenderer _display;
@@ -76,7 +76,7 @@ public class JamEntity
     public int Row { get; private set; }
 
     // constructor (also creates an accompanying gameobject and sprite renderer)
-    public JamEntity(int col, int row)
+    public JamEntityClass(int col, int row)
     {
         // assign new ID to self
         ID = _usedIDs++;

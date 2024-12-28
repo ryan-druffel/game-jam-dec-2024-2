@@ -37,10 +37,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Blur_Offset: 0.00053
+    - _Blur_Offset: 0.001134
     - _Number_Of_Scan_Lines: 100
-    - _Scan_Line_Opacity: 0.558
-    - _Scan_Line_Size: 0
+    - _Scan_Line_Opacity: 0.476
+    - _Scan_Line_Size: 0.638
     - _Scan_Lines_Speed: 0.02
     - _Scan_Lines_Spread: 0.05
     m_Colors:

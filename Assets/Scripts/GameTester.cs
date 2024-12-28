@@ -4,12 +4,12 @@ public class GameTester : MonoBehaviour
 {
     [SerializeField] Sprite testerSprite;
 
-    JamGrid grid;
+    JamGridClass grid;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        grid = new JamGrid(10, 10);
+        grid = new JamGridClass(10, 10);
         grid.PeterGriffin();
         TickEntities();
     }
