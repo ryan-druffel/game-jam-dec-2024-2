@@ -20,8 +20,12 @@ public class JamGrid : MonoBehaviour
     [SerializeField]
     Transform bottomRight;
 
+    [SerializeField]
+    SpriteRenderer gridTilemap;
+
     void Awake() {
         Debug.Assert(_width != 0 && _height != 0, "0 Height or Width");
+        gridTilemap.size = new Vector2(Width, Height);
     }
 
     public bool Connect(JamGridEntity entity) {
@@ -86,8 +90,13 @@ public class JamGrid : MonoBehaviour
 
     public Vector2 GetCellXY(int col, int row)
     {
+        /*
         float x = topLeft.position.x + (bottomRight.position.x - topLeft.position.x) * ((float) (col + 0.5) / _width);
         float y = topLeft.position.y + (bottomRight.position.y - topLeft.position.y) * ((float) (row + 0.5) / _height);
+        */
+
+        float x = -(Width / 2f) + col + 0.5f;
+        float y = -(Height / 2f) + row + 0.5f;
         return new Vector2(x, y);
     }
 }
