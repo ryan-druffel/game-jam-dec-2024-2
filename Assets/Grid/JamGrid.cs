@@ -103,6 +103,11 @@ public class JamGrid : MonoBehaviour
         float y = topLeft.position.y + (bottomRight.position.y - topLeft.position.y) * ((float) (row + 0.5) / _height);
         return new Vector2(x, y);
     }
+
+    public bool CellExists(int col, int row)
+    {
+        return col >= 0 && col < Width && row >= 0 && row < Height;
+    }
 }
 
 

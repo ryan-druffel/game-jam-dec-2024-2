@@ -85,7 +85,7 @@ public class JamCreature : JamGridActor
     public override void Step() {
         StartWalkAnimation(gridData.GetRelativeXY(move.x, move.y));
         gridData.MoveRelative(move.x, move.y);
-        Debug.Log(transform.name + " is at " + gridData.GetColumn() + ", " + gridData.GetRow());
+        // Debug.Log(transform.name + " is at " + gridData.GetColumn() + ", " + gridData.GetRow());
     }
 
     public override void PostEvaluate() {

@@ -204,7 +204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d21104baa7f744ab7935c9d7952a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridScene: {fileID: 102900000, guid: 5cf81e8d8c31d4e40b9db311b1a00f07, type: 3}
+  gridSceneAsset: {fileID: 102900000, guid: 5cf81e8d8c31d4e40b9db311b1a00f07, type: 3}
+  display: {fileID: 695772971}
 --- !u!1 &1016553547
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +434,7 @@ GameObject:
   - component: {fileID: 1718406249}
   - component: {fileID: 1718406248}
   - component: {fileID: 1718406247}
+  - component: {fileID: 1718406251}
   m_Layer: 5
   m_Name: MainCanvas
   m_TagString: Untagged
@@ -524,6 +526,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1718406251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718406246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b170fba3b6ee741b112f7a5869c3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  gridBox: {fileID: 695772974}
+  targetCard: {fileID: 0}
 --- !u!1 &2049944988
 GameObject:
   m_ObjectHideFlags: 0
