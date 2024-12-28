@@ -34,7 +34,7 @@ public class JamRedCreature : JamGridActor
     }
     void AnimateWalk(float delta)
     {
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(animWalkDest.x, animWalkDest.y, transform.position.z), delta * 2);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(animWalkDest.x, animWalkDest.y, transform.position.z), delta / JamCoordinator.Instance.StepDuration);
         if (animWalkDest == new Vector2(transform.position.x, transform.position.y)) { isWalking = false; }
     }
 
