@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 7664850d03e4ed04eb637d71d1589db5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0078
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 7664850d03e4ed04eb637d71d1589db5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3697
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 7664850d03e4ed04eb637d71d1589db5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -97,6 +97,10 @@ PrefabInstance:
       objectReference: {fileID: 1045481956048363015}
     - target: {fileID: 4823502190315997047, guid: e3a445a6daf81f2468cb2a23d7cf4b68, type: 3}
       propertyPath: duplicateThis
+      value: 
+      objectReference: {fileID: 3994198890838728481}
+    - target: {fileID: 6070969660494866061, guid: e3a445a6daf81f2468cb2a23d7cf4b68, type: 3}
+      propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3994198890838728481}
     - target: {fileID: 7635324821735185639, guid: e3a445a6daf81f2468cb2a23d7cf4b68, type: 3}

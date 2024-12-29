@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: duplicateThis
       value: 
       objectReference: {fileID: 4947416865046445924}
+    - target: {fileID: 6070969660494866061, guid: e3a445a6daf81f2468cb2a23d7cf4b68, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 4947416865046445924}
     - target: {fileID: 7635324821735185639, guid: e3a445a6daf81f2468cb2a23d7cf4b68, type: 3}
       propertyPath: move.x
       value: 0
@@ -146,11 +150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5fb2ff40249053f4381f1331afc43ac8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.023
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5fb2ff40249053f4381f1331afc43ac8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.407
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5fb2ff40249053f4381f1331afc43ac8, type: 3}
       propertyPath: m_LocalPosition.z

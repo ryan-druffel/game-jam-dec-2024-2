@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using Mono.Cecil;
 using Unity.Collections;
 using UnityEngine;
 
@@ -107,6 +109,17 @@ public class JamGrid : MonoBehaviour
     public bool CellExists(int col, int row)
     {
         return col >= 0 && col < Width && row >= 0 && row < Height;
+    }
+
+    public JamGridActor SpawnActorAtCell(int col, int row, GameObject prefab) {
+        Debug.Log("Summoning");
+        GameObject newObject = Instantiate(prefab);
+        newObject.transform.parent = transform.parent;
+        JamGridActor actor = newObject.GetComponent<JamGridActor>();
+        if (actor == null) return null;
+        actor.gridData.Move(col, row);
+        actor.gridData.ConnectToGrid(this);
+        return actor;
     }
 }
 
@@ -240,6 +253,22 @@ public class ActorTypes
 {
     public static string Creature { get { return "Creature"; } }
     public static string Wall { get { return "Wall"; } }
+    public static string Food { get { return "Food"; } }
     public static string Cyan { get { return "Cyan"; } }
     public static string Red { get { return "Red"; } }
+}
+
+public class ActorPrefabs
+{
+    private static GameObject GetPrefab(String path, ref GameObject loadedObject) {
+        if (loadedObject == null) loadedObject = Resources.Load<GameObject>(path);
+        return loadedObject;
+    }
+    static GameObject redCreature;
+    public static GameObject RedCreature => GetPrefab("Prefabs/Ghost Variant", ref redCreature);
+    static GameObject cyanCreature;
+    public static GameObject CyanCreature => GetPrefab("Prefabs/Pyramid Variant", ref redCreature);
+    // public static GameObject CyanCreature { get { return "Creature"; } }
+    // public static GameObject Wall { get { return "Wall"; } }
+    // public static GameObject Food { get { return "Food"; } }
 }

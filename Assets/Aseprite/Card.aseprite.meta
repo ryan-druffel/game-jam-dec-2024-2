@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5fb2ff40249053f4381f1331afc43ac8
+guid: 8cc1905079724e742bb8dd4ad09f2f4c
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,10 +33,10 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 1
+    spriteMeshType: 0
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 32
+    spritePixelsToUnits: 96
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638709958395037455
+  platformSettingsDirtyTick: 638710777252586811
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,40 +123,19 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Frame_0
+  - name: Card
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 75
-      width: 24
-      height: 25
-    spriteID: 55d3aeecb18802147aa592286dff8030
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 75}
-  - name: Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 17, y: 17, z: 17, w: 17}
     customData: 
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 26
-      height: 28
-    spriteID: 11991477004405c4bb7043a53eeebc51
+      width: 128
+      height: 128
+    spriteID: b03de3d8108bc644ebde3e022913d640
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -165,63 +144,24 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Frame_2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 40
-      width: 25
-      height: 27
-    spriteID: 6d8a14f14eeabbf48bdb257b7a0a8565
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 40}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1965866606
-    name: Pyramid
+    guid: 762135924
+    name: Card
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Frame_0
+    - name: Card
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 4
-        y: 3
-        width: 24
-        height: 25
-      spriteId: 55d3aeecb18802147aa592286dff8030
-    - name: Frame_1
-      frameIndex: 1
-      additiveSortOrder: 0
-      cellRect:
-        x: 3
-        y: 1
-        width: 26
-        height: 28
-      spriteId: 11991477004405c4bb7043a53eeebc51
-    - name: Frame_2
-      frameIndex: 2
-      additiveSortOrder: 0
-      cellRect:
-        x: 4
-        y: 2
-        width: 25
-        height: 27
-      spriteId: 6d8a14f14eeabbf48bdb257b7a0a8565
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      spriteId: b03de3d8108bc644ebde3e022913d640
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -276,5 +216,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 32}
-  previousTextureSize: {x: 64, y: 128}
+  canvasSize: {x: 128, y: 128}
+  previousTextureSize: {x: 256, y: 256}
