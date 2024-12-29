@@ -39,9 +39,9 @@ Material:
     m_Floats:
     - _Blur_Offset: 0.001134
     - _Number_Of_Scan_Lines: 50
-    - _Scan_Line_Opacity: 0.397
-    - _Scan_Line_Size: 0.218
-    - _Scan_Lines_Speed: 0.077
+    - _Scan_Line_Opacity: 0.341
+    - _Scan_Line_Size: 0.127
+    - _Scan_Lines_Speed: -0.029
     - _Scan_Lines_Spread: 0.05
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
