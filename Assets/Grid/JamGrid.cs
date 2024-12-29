@@ -122,6 +122,7 @@ public class JamGridEntity
     public int Column { get; private set; }
     public int Row { get; private set; }
     public Transform Transform { get; private set; }
+    public JamGrid Grid { get => _grid; }
 
     private bool isOnGrid = false;
     private JamGrid _grid;
@@ -219,7 +220,7 @@ public abstract class JamGridActor : MonoBehaviour
     [SerializeField]
     protected int initRow = 0;
     [SerializeField]
-    protected JamGrid grid;
+    protected JamGrid initGrid;
 
     public abstract JamGridEntity GetGridEntity();
     public abstract int GetPriority();

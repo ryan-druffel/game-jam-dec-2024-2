@@ -106,7 +106,7 @@ public class JamCoordinator : MonoBehaviour
             // report that we're done
             yield return new WaitForSeconds(StepDuration);
 
-            Debug.Log("Step done!");
+            // Debug.Log("Step done!");
 
             // add a beat between steps
             yield return new WaitForSeconds(StepDelay);
@@ -115,6 +115,6 @@ public class JamCoordinator : MonoBehaviour
             entities = _grid.GetAllEntities();
         }
 
-        Debug.LogWarning("No entities left to step! Closing loop...");
+        // Debug.LogWarning("No entities left to step! Closing loop...");
     }
 }

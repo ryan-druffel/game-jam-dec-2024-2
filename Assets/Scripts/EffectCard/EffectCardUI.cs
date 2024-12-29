@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Data;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class EffectCardUI : MonoBehaviour
 {
@@ -15,6 +15,10 @@ public class EffectCardUI : MonoBehaviour
     SelectionState state;
     [SerializeField]
     GridBox gridBox;
+    [SerializeField]
+    Image selectImage;
+    [SerializeField]
+    SpriteRenderer selectCellImage;
     [SerializeField]
 
     EffectCard targetCard;
@@ -62,6 +66,10 @@ public class EffectCardUI : MonoBehaviour
                     DeselectTarget();
                     state = SelectionState.Empty;
                 }
+                if (hoveredCard != targetCard) {
+                    DeselectTarget();
+                    SelectTarget(hoveredCard);
+                }
                 break;
             case SelectionState.Selecting:
                 if (targetCard is null) state = SelectionState.Empty;
@@ -84,6 +92,41 @@ public class EffectCardUI : MonoBehaviour
                 effectCards[i].targetPos = effectCardsSpots[i];
             }
         }
+
+        // Animate Selection
+        if (selectImage) {
+            Color newColor;
+            if (state == SelectionState.Selecting) {
+                newColor = selectImage.color;
+                newColor.a = 1;
+                selectImage.color = newColor;
+                // selectImage.rectTransform.position = Input.mousePosition / new Vector2(Screen.width, Screen.height);
+                Vector2 pos;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(selectImage.canvas.transform as RectTransform, Input.mousePosition, selectImage.canvas.worldCamera, out pos);
+                selectImage.transform.position = selectImage.canvas.transform.TransformPoint(pos);
+            } else {
+                newColor = selectImage.color;
+                newColor.a = 0;
+                selectImage.color = newColor;
+            }
+        }
+
+        // Animate Cell Selection Preview
+        if (selectCellImage) {
+            Color newColor;
+            if (state == SelectionState.Selecting) {
+                newColor = selectCellImage.color;
+                newColor.a = 1;
+                selectCellImage.color = newColor;
+                // selectImage.rectTransform.position = Input.mousePosition / new Vector2(Screen.width, Screen.height);
+                Vector2Int cell = GetGridCellUnderCursor();
+                selectCellImage.transform.position = gridBox.GetGrid().GetCellXY(cell.x, cell.y);
+            } else {
+                newColor = selectCellImage.color;
+                newColor.a = 0;
+                selectCellImage.color = newColor;
+            }
+        }
     }
 
     void SelectTarget(EffectCard card) {
@@ -98,7 +141,7 @@ public class EffectCardUI : MonoBehaviour
 
     EffectCard GetHoveredCard() {
         foreach (EffectCard card in effectCards) {
-            if (card.IsHovered()) return card;
+            if (card != null && card.IsHovered()) return card;
         }
         return null;
     }

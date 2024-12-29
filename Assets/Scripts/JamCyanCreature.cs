@@ -19,7 +19,7 @@ public class JamCyanCreature : JamGridActor
         gridData = new JamGridEntity(0, 0, this);
         if (autoconnect) {
             gridData.Move(initColumn, initRow);
-            gridData.ConnectToGrid(grid);
+            gridData.ConnectToGrid(initGrid);
         }
     }
 
@@ -63,33 +63,37 @@ public class JamCyanCreature : JamGridActor
     }
 
     public override void PreEvaluate() {
-        // look at the tile we're about to enter
-        var entities = grid.GetCellEntities(gridData.Column + move.x, gridData.Row + move.y);
+        if (gridData.Grid != null) {
+            // look at the tile we're about to enter
+            var entities = gridData.Grid.GetCellEntities(gridData.Column + move.x, gridData.Row + move.y);
 
-        // are any of these a wall?
-        if (entities.Any(i => i.GetActor().IsOfType(ActorTypes.Wall)))
-        {
-            Debug.Log("There's a wall here!");
-            // try to turn around
-            move *= -1;
+            // are any of these a wall?
+            if (entities.Any(i => i.GetActor().IsOfType(ActorTypes.Wall)))
+            {
+                //Debug.Log("There's a wall here!");
+                // try to turn around
+                move *= -1;
+            }
         }
     }
 
     public override void Step() {
         StartWalkAnimation(gridData.GetRelativeXY(move.x, move.y));
         gridData.MoveRelative(move.x, move.y);
-        Debug.Log(transform.name + " is at " + gridData.GetColumn() + ", " + gridData.GetRow());
+        // Debug.Log(transform.name + " is at " + gridData.GetColumn() + ", " + gridData.GetRow());
     }
 
     public override void PostEvaluate() 
     {
-        // if i am sharing a cell with a cyan guy, i'm out peace ya'll
-        var entities = grid.GetCellEntities(gridData.Column, gridData.Row);
-        if (entities.Any(i => i.GetActor().IsOfType(ActorTypes.Red) && i.GetActor().IsOfType(ActorTypes.Creature)))
-        {
-            Debug.Log("grrr red bad grrr");
-            // eliminate self
-            Destroy(gameObject);
+        if (gridData.Grid != null) {
+            // if i am sharing a cell with a cyan guy, i'm out peace ya'll
+            var entities = gridData.Grid.GetCellEntities(gridData.Column, gridData.Row);
+            if (entities.Any(i => i.GetActor().IsOfType(ActorTypes.Red) && i.GetActor().IsOfType(ActorTypes.Creature)))
+            {
+                Debug.Log("grrr red bad grrr");
+                // eliminate self
+                Destroy(gameObject);
+            }
         }
     }
 }

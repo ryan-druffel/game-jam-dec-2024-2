@@ -19,7 +19,7 @@ public class JamCreature : JamGridActor
         gridData = new JamGridEntity(0, 0, this);
         if (autoconnect) {
             gridData.Move(initColumn, initRow);
-            gridData.ConnectToGrid(grid);
+            gridData.ConnectToGrid(initGrid);
         }
     }
     
@@ -71,7 +71,7 @@ public class JamCreature : JamGridActor
 
     public override void PreEvaluate() {
         // look at the tile we're about to enter
-        var entities = grid.GetCellEntities(gridData.Column + move.x, gridData.Row + move.y);
+        var entities = gridData.Grid.GetCellEntities(gridData.Column + move.x, gridData.Row + move.y);
 
         // are any of these a wall?
         if (entities.Any(i => i.GetActor().IsOfType(ActorTypes.Wall)))

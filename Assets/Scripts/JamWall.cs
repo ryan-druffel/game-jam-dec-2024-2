@@ -11,9 +11,12 @@ public class JamWall : JamGridActor
         if (autoconnect)
         {
             gridData.Move(initColumn, initRow);
-            transform.position = grid.GetCellXY(initColumn, initRow);
-            gridData.ConnectToGrid(grid);
+            gridData.ConnectToGrid(initGrid);
         }
+    }
+
+    void Update() {
+        transform.position = gridData.GetXY();
     }
 
     public override JamGridEntity GetGridEntity()
@@ -43,6 +46,6 @@ public class JamWall : JamGridActor
 
     public override void PostEvaluate()
     {
-        transform.position = grid.GetCellXY(initColumn, initRow);
+        transform.position = gridData.Grid.GetCellXY(initColumn, initRow);
     }
 }
