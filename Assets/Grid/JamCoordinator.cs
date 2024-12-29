@@ -46,29 +46,6 @@ public class JamCoordinator : MonoBehaviour
         if (timeScale < 0) timeScale = 0;
     }
 
-    void StepGridOccupants() {
-        // Get occupants
-        List<JamGridEntity> list = _grid.GetAllEntities();
-        // Pre Evaluate
-        foreach (JamGridEntity entity in list) {
-            if (entity.GetActor() is not null) {
-                entity.GetActor().PreEvaluate();
-            }
-        }
-        // Step
-        foreach (JamGridEntity entity in list) {
-            if (entity.GetActor() is not null) {
-                entity.GetActor().Step();
-            }
-        }
-        // Post Evaluate
-        foreach (JamGridEntity entity in list) {
-            if (entity.GetActor() is not null) {
-                entity.GetActor().PostEvaluate();
-            }
-        }
-    }
-
     IEnumerator StepLoop()
     {
         // add a pause before starting the loop

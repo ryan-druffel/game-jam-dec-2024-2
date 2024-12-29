@@ -1,52 +1,9 @@
 using System;
 using System.Linq;
-
 using UnityEngine;
 
-public class JamCyanCreature : JamGridActor
+public class JamCyanCreature : JamCreature
 {
-    [SerializeField]
-    private bool autoconnect = false;
-
-    [SerializeField]
-    public Vector2Int move;
-
-    [SerializeField]
-    public int priority = 0;
-    
-    void Awake()
-    {
-        gridData = new JamGridEntity(0, 0, this);
-        if (autoconnect) {
-            gridData.Move(initColumn, initRow);
-            gridData.ConnectToGrid(initGrid);
-        }
-    }
-
-    Vector2 animWalkStart = Vector2.zero;
-    Vector2 animWalkDest = Vector2.zero;
-    bool isWalking = false;
-    void StartWalkAnimation(Vector2 destination)
-    {
-        animWalkStart = transform.position;
-        animWalkDest = destination;
-        isWalking = true;
-    }
-    void AnimateWalk(float delta)
-    {
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(animWalkDest.x, animWalkDest.y, transform.position.z), delta / JamCoordinator.Instance.StepDuration);
-        if (animWalkDest == new Vector2(transform.position.x, transform.position.y)) { isWalking = false; }
-    }
-
-    void Update() {
-        if (isWalking) {
-            AnimateWalk(Time.deltaTime);
-        } else {
-            Vector2 gridPos = gridData.GetXY();
-            transform.position = new Vector3(gridPos.x, gridPos.y, transform.position.z);
-        }
-    }
-
     static string[] typeTags = { ActorTypes.Creature, ActorTypes.Cyan };
     public override bool IsOfType(string type)
     {
@@ -62,25 +19,14 @@ public class JamCyanCreature : JamGridActor
         return priority;
     }
 
-    public override void PreEvaluate() {
-        if (gridData.Grid != null) {
-            // look at the tile we're about to enter
-            var entities = gridData.Grid.GetCellEntities(gridData.Column + move.x, gridData.Row + move.y);
-
-            // are any of these a wall?
-            if (entities.Any(i => i.GetActor().IsOfType(ActorTypes.Wall)))
-            {
-                //Debug.Log("There's a wall here!");
-                // try to turn around
-                move *= -1;
-            }
-        }
+    public override void PreEvaluate()
+    {
+        base.PreEvaluate();
     }
 
-    public override void Step() {
-        StartWalkAnimation(gridData.GetRelativeXY(move.x, move.y));
-        gridData.MoveRelative(move.x, move.y);
-        // Debug.Log(transform.name + " is at " + gridData.GetColumn() + ", " + gridData.GetRow());
+    public override void Step()
+    {
+        base.Step();
     }
 
     public override void PostEvaluate() 

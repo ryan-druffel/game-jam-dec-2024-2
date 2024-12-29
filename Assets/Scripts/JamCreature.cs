@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 
 using UnityEngine;
@@ -6,58 +7,56 @@ using UnityEngine;
 public class JamCreature : JamGridActor
 {
     [SerializeField]
-    private bool autoconnect = false;
-
-    [SerializeField]
+    protected bool autoconnect = false;
     public Vector2Int move;
-
-    [SerializeField]
     public int priority = 0;
     
-    void Awake()
+    protected void Awake()
     {
-        gridData = new JamGridEntity(0, 0, this);
+        gridData = new JamGridEntity(initColumn, initRow, this);
         if (autoconnect) {
-            gridData.Move(initColumn, initRow);
             gridData.ConnectToGrid(initGrid);
         }
     }
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    void Update() {
-        if (isWalking) {
-            AnimateWalk(Time.deltaTime);
-        } else {
-            Vector2 gridPos = gridData.GetXY();
-            transform.position = new Vector3(gridPos.x, gridPos.y, transform.position.z);
-        }
-    }
-    
-    void FixedUpdate()
+    protected void Start()
     {
+        SnapToGrid();
     }
 
     public override bool IsOfType(string type)
     {
-        return type.ToLower().Equals(ActorTypes.Creature.ToLower());
+        return type.Equals(ActorTypes.Creature);
     }
 
-    Vector2 animWalkStart = Vector2.zero;
-    Vector2 animWalkDest = Vector2.zero;
-    bool isWalking = false;
-    void StartWalkAnimation (Vector2 destination) {
-        animWalkStart = transform.position;
-        animWalkDest = destination;
-        isWalking = true;
+    protected void StartWalkAnimation (Vector2 destination) {
+        StopCoroutine(WalkAnimation(destination));
+        StartCoroutine(WalkAnimation(destination));
     }
-    void AnimateWalk(float delta) {
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(animWalkDest.x, animWalkDest.y, transform.position.z), delta * 2);
-        if (animWalkDest == new Vector2(transform.position.x, transform.position.y)) { isWalking = false; }
+
+    IEnumerator WalkAnimation(Vector2 destination)
+    {
+        // get target position
+        var dest = new Vector3(destination.x, destination.y, transform.position.z);
+
+        // move towards the destination until it is reached
+        float timer = JamCoordinator.Instance.StepDuration;
+        while (timer > 0)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, dest, Time.deltaTime / JamCoordinator.Instance.StepDuration);
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+
+        // snap to target position to be sure
+        SnapToGrid();
+    }
+
+    // snap to the current position
+    protected void SnapToGrid()
+    {
+        Vector2 gridPos = gridData.GetXY();
+        transform.position = new Vector3(gridPos.x, gridPos.y, transform.position.z);
     }
 
     // JamGridActor Implementation
