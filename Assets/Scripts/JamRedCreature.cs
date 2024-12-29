@@ -36,8 +36,7 @@ public class JamRedCreature : JamCreature
             if (entities.Any(i => i.GetActor().IsOfType(ActorTypes.Cyan) && i.GetActor().IsOfType(ActorTypes.Creature)))
             {
                 Debug.Log("grrr cyan bad grrr");
-                // eliminate self
-                Destroy(gameObject);
+                ObliteratedByOtherCreature();
             }
         }
     }

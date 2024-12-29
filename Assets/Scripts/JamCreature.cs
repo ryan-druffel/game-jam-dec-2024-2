@@ -29,9 +29,15 @@ public class JamCreature : JamGridActor
         return type.Equals(ActorTypes.Creature);
     }
 
+    IEnumerator walkAnim;
     protected void StartWalkAnimation (Vector2 destination) {
-        StopCoroutine(WalkAnimation(destination));
-        StartCoroutine(WalkAnimation(destination));
+        StopWalkAnimation();
+        walkAnim = WalkAnimation(destination);
+        StartCoroutine(walkAnim);
+    }
+    protected void StopWalkAnimation () {
+        if (walkAnim != null) StopCoroutine(walkAnim);
+        SnapToGrid();
     }
 
     IEnumerator WalkAnimation(Vector2 destination)
@@ -40,16 +46,20 @@ public class JamCreature : JamGridActor
         var dest = new Vector3(destination.x, destination.y, transform.position.z);
 
         // move towards the destination until it is reached
-        float timer = JamCoordinator.Instance.StepDuration;
-        while (timer > 0)
+        while (transform.position != dest)
         {
-            transform.position = Vector3.MoveTowards(transform.position, dest, Time.deltaTime / JamCoordinator.Instance.StepDuration);
-            timer -= Time.deltaTime;
+            if (JamCoordinator.Instance.TimeScale > 0) transform.position = Vector3.MoveTowards(transform.position, dest, Time.deltaTime / JamCoordinator.Instance.StepDuration);
             yield return null;
         }
 
         // snap to target position to be sure
         SnapToGrid();
+    }
+
+    protected void ObliteratedByOtherCreature() {
+        JamCoordinator.Instance.GameOver = true;
+        // eliminate self
+        Destroy(gameObject);
     }
 
     // snap to the current position
@@ -69,6 +79,8 @@ public class JamCreature : JamGridActor
     }
 
     public override void PreEvaluate() {
+        StopWalkAnimation();
+
         // look at the tile we're about to enter
         var entities = gridData.Grid.GetCellEntities(gridData.Column + move.x, gridData.Row + move.y);
 

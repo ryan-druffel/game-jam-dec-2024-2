@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class TutorialPopups : MonoBehaviour
+public class PopupController : MonoBehaviour
 {
     [SerializeField]
     EffectCardUI effectCardUI;
@@ -24,10 +24,12 @@ public class TutorialPopups : MonoBehaviour
         foreach (Popup popup in popups) {
             if (!popup.triggered && popup.scoreThreshold <= effectCardUI.GridBox.GetCoordinator().Score) DisplayPopup(popup);
         }
+        if (!gameOverPopup.triggered && effectCardUI.GridBox.GetCoordinator().GameOver) DisplayPopup(gameOverPopup);
     }
 
     void DisplayPopup(Popup popup) {
         popup.triggered = true;
+        effectCardUI.GridBox.GetCoordinator().SetTimescale(0);
         
         Debug.Log("Popup Triggering");
         GameObject newObject = Instantiate(popup.prefab);
@@ -38,18 +40,21 @@ public class TutorialPopups : MonoBehaviour
         public GameObject prefab;
         public int scoreThreshold;
         public bool triggered;
-        public Popup(GameObject prefa, int score) {
+        public Popup(GameObject prefa, int score = 0) {
             prefab = prefa;
             scoreThreshold = score;
             triggered = false;
         }
     }
     List<Popup> popups;
+    Popup gameOverPopup;
 
     void InitializePopups() {
         popups = new List<Popup>();
 
+        gameOverPopup = new Popup(Resources.Load<GameObject>("Prefabs/UI/GameOverPopup"));
+
         // Add popups here
-        // popups.Add(new Popup(Resources.Load<GameObject>("Prefabs/UI/Popup"), 0));
+        popups.Add(new Popup(Resources.Load<GameObject>("Prefabs/UI/IntroPopup"), 0));
     }
 }

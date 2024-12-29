@@ -256,6 +256,10 @@ public class ActorTypes
     public static string Food { get { return "Food"; } }
     public static string Cyan { get { return "Cyan"; } }
     public static string Red { get { return "Red"; } }
+    public static string Yellow { get { return "Yellow"; } }
+    public static string Blue { get { return "Blue"; } }
+    public static string Green { get { return "Green"; } }
+    public static string Pink { get { return "Pink"; } }
 }
 
 public class ActorPrefabs
@@ -265,9 +269,9 @@ public class ActorPrefabs
         return loadedObject;
     }
     static GameObject redCreature;
-    public static GameObject RedCreature => GetPrefab("Prefabs/Ghost Variant", ref redCreature);
+    public static GameObject RedCreature => GetPrefab("Prefabs/Red Creature", ref redCreature);
     static GameObject cyanCreature;
-    public static GameObject CyanCreature => GetPrefab("Prefabs/Pyramid Variant", ref redCreature);
+    public static GameObject CyanCreature => GetPrefab("Prefabs/Cyan Creature", ref redCreature);
     // public static GameObject CyanCreature { get { return "Creature"; } }
     // public static GameObject Wall { get { return "Wall"; } }
     // public static GameObject Food { get { return "Food"; } }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class JamCoordinator : MonoBehaviour
@@ -9,19 +10,28 @@ public class JamCoordinator : MonoBehaviour
 
     // Timing Stuff
     [SerializeField]
-    [Range(0.1f, 10)] private float timeScale = 1; // speed up/slowdown time
+    [Range(0, 10)] private float timeScale = 1; // speed up/slowdown time
+    public float TimeScale { get => timeScale; }
     [SerializeField]
     private float stepTime = 3;
     [SerializeField]
     private float stepPause = 0.25f; // the delay between full steps
+    [SerializeField]
+    private float initPause = 1f; // the delay between full steps
 
-    public float StepDuration { get { return stepTime / timeScale; } }
-    public float StepDelay { get { return stepPause / timeScale; } }
+    public float StepDuration { get { return timeScale == 0 ? Mathf.Infinity : stepTime / timeScale; } }
+    public float StepDelay { get { return timeScale == 0 ? Mathf.Infinity : stepPause / timeScale; } }
 
     // Scoring stuff
     [SerializeField]
     private int score = 0;
     public int Score { get => score; }
+    private int stepCount = 0;
+    public int StepCount { get => score; }
+
+    // Scoring stuff
+    [SerializeField]
+    public bool GameOver = false;
 
     private static JamCoordinator _instance;
     public static JamCoordinator Instance
@@ -42,6 +52,17 @@ public class JamCoordinator : MonoBehaviour
     {
         Debug.Assert(_grid != null, "Grid not assigned to coordinator");
         StartCoroutine(StepLoop());
+
+        // Setup Timer
+        stepTimer = stepTime + stepPause + initPause;
+    }
+    
+
+    [SerializeField]
+    float stepTimer = 0;
+    void FixedUpdate()
+    {
+        stepTimer -= Time.fixedDeltaTime * timeScale;
     }
 
     // Update is called once per frame
@@ -53,8 +74,11 @@ public class JamCoordinator : MonoBehaviour
 
     IEnumerator StepLoop()
     {
-        // add a pause before starting the loop
-        yield return new WaitForSeconds(1);
+
+        // initial pause
+        while (stepTimer > stepPause + stepTime){
+            yield return null;
+        }
 
         // while there are entities to move, step loop
         List<JamGridEntity> entities = _grid.GetAllEntities();
@@ -69,6 +93,7 @@ public class JamCoordinator : MonoBehaviour
                 }
             }
             // Step
+            stepCount++;
             foreach (JamGridEntity entity in entities)
             {
                 if (entity.GetActor() is not null)
@@ -86,12 +111,18 @@ public class JamCoordinator : MonoBehaviour
             }
 
             // report that we're done
-            yield return new WaitForSeconds(StepDuration);
+            while (stepTimer > stepPause){
+                yield return null;
+            }
 
             // Debug.Log("Step done!");
 
             // add a beat between steps
-            yield return new WaitForSeconds(StepDelay);
+            while (stepTimer > 0){
+                yield return null;
+            }
+
+            stepTimer += stepTime + stepPause;
 
             // grab the entities
             entities = _grid.GetAllEntities();
