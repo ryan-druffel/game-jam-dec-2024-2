@@ -18,6 +18,10 @@ public class JamCoordinator : MonoBehaviour
     public float StepDuration { get { return stepTime / timeScale; } }
     public float StepDelay { get { return stepPause / timeScale; } }
 
+    // Scoring stuff
+    private int score = 0;
+    public int Score { get => score; }
+
     private static JamCoordinator _instance;
     public static JamCoordinator Instance
     {
