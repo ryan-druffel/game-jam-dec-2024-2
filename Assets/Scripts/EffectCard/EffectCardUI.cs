@@ -15,6 +15,7 @@ public class EffectCardUI : MonoBehaviour
     SelectionState state;
     [SerializeField]
     GridBox gridBox;
+    public GridBox GridBox { get => gridBox; }
     [SerializeField]
     Image selectImage;
     [SerializeField]
@@ -34,6 +35,11 @@ public class EffectCardUI : MonoBehaviour
     {
         if (effectCards == null) effectCards = new List<EffectCard>();
         if (effectCardsSpots == null) effectCardsSpots = new List<Transform>();
+    }
+
+    void Start()
+    {
+        Debug.Assert(gridBox != null, "Grid Box not supplied to UI");
     }
 
     // Update is called once per frame

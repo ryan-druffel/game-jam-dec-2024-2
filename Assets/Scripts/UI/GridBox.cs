@@ -10,6 +10,7 @@ public class GridBox : MonoBehaviour
     SceneAsset gridSceneAsset;
     Scene gridScene;
     JamGrid grid;
+    JamCoordinator coordinator;
     [SerializeField]
     RectTransform display;
 
@@ -24,14 +25,7 @@ public class GridBox : MonoBehaviour
 
     public JamGrid GetGrid()
     {
-        if (grid == null) {
-            GameObject[] objs = gridScene.GetRootGameObjects();
-            Debug.Log(objs.Count());
-            foreach (GameObject obj in objs) {
-                JamGrid gridObj = obj.GetComponent<JamGrid>();
-                if (gridObj != null) grid = gridObj;
-            }
-        }
+        if (grid == null) grid = GetTypeFromGridSceneRoot<JamGrid>();
         Debug.Assert(grid != null, "Could not find jam grid in scene"); 
         return grid;
     }
@@ -40,5 +34,23 @@ public class GridBox : MonoBehaviour
     {
         Debug.Assert(display != null, "Could not find grid display"); 
         return display;
+    }
+
+    public JamCoordinator GetCoordinator()
+    {
+        
+        if (coordinator == null) coordinator = GetTypeFromGridSceneRoot<JamCoordinator>();
+        Debug.Assert(coordinator != null, "Could not find coordinator"); 
+        return coordinator;
+    }
+
+    private T GetTypeFromGridSceneRoot<T>() {
+        T query = default(T);
+        GameObject[] objs = gridScene.GetRootGameObjects();
+        foreach (GameObject obj in objs) {
+            T queryObj = obj.GetComponent<T>();
+            if (queryObj != null) query = queryObj;
+        }
+        return query;
     }
 }

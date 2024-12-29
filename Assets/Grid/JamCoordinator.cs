@@ -40,7 +40,7 @@ public class JamCoordinator : MonoBehaviour
     }
 
     // Update is called once per frame
-    void SetTimescale(float newTimeScale)
+    public void SetTimescale(float newTimeScale)
     {
         timeScale = newTimeScale;
         if (timeScale < 0) timeScale = 0;
