@@ -13,6 +13,6 @@ public class ScoreDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<TMP_Text>().text = "SCORE: " + effectCardUI.GridBox.GetCoordinator().Score;
+        if (GetComponent<TMP_Text>() && effectCardUI.GridBox && effectCardUI.GridBox.GetCoordinator()) GetComponent<TMP_Text>().text = "SCORE: " + effectCardUI.GridBox.GetCoordinator().Score;
     }
 }

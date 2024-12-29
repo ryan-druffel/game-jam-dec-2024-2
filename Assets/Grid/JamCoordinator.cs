@@ -19,6 +19,7 @@ public class JamCoordinator : MonoBehaviour
     public float StepDelay { get { return stepPause / timeScale; } }
 
     // Scoring stuff
+    [SerializeField]
     private int score = 0;
     public int Score { get => score; }
 
