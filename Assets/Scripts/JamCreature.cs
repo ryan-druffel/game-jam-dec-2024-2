@@ -46,11 +46,12 @@ public class JamCreature : JamGridActor
     {
         // get target position
         var dest = new Vector3(destination.x, destination.y, transform.position.z);
+        var distance = Vector3.Distance(transform.position, dest);
 
         // move towards the destination until it is reached
         while (transform.position != dest)
         {
-            if (JamCoordinator.Instance.TimeScale > 0) transform.position = Vector3.MoveTowards(transform.position, dest, Time.deltaTime * speedMult / JamCoordinator.Instance.StepDuration);
+            if (JamCoordinator.Instance.TimeScale > 0) transform.position = Vector3.MoveTowards(transform.position, dest, Time.deltaTime * speedMult / JamCoordinator.Instance.StepDuration * distance);
             yield return null;
         }
 
@@ -151,7 +152,7 @@ public class JamCreature : JamGridActor
 
     }
 
-    // does nothing but move either horizontally or vertically
+    // does nothing but move on a single axis (orthogonal or diagonal)
     protected void SingleAxisMovement(ref Vector2Int direction)
     {
         // move vertically, turn around if hitting a wall
@@ -176,4 +177,11 @@ public class GridDirections
     public static readonly Vector2Int South = new Vector2Int(0, 1);
     public static readonly Vector2Int West = new Vector2Int(-1, 0);
     public static readonly Vector2Int[] Orthogonal = new Vector2Int[] { North, East, South, West };
+    public static readonly Vector2Int Northeast = North + East;
+    public static readonly Vector2Int Southeast = South + East;
+    public static readonly Vector2Int Southwest = South + West;
+    public static readonly Vector2Int Northwest = North + West;
+    public static readonly Vector2Int[] Diagonal = new Vector2Int[] { Northeast, Southeast, Southwest, Northwest };
+
+    public static readonly Vector2Int[] All = new Vector2Int[] { North, Northeast, East, Southeast, South, Southwest, West,  Northwest };
 }
