@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Conveyor : JamGridActor
@@ -52,12 +53,14 @@ public class Conveyor : JamGridActor
         List<JamGridEntity> entities = gridData.Grid.GetCellEntities(gridData.Column, gridData.Row);
         foreach (JamGridEntity entity in entities) {
             if (entity != gridData) {
-                entity.MoveRelative(pushDir.x, pushDir.y);
-                usesRemaining--;
-                if (entity.GetActor().IsOfType(ActorTags.Creature)) {
-                    JamCreature creature = entity.GetActor().GetComponent<JamCreature>();
-                    creature.RecomputeMove(2);
+                if (!IsTileSolid(pushDir)) {
+                    entity.MoveRelative(pushDir.x, pushDir.y);
+                    if (entity.GetActor().IsOfType(ActorTags.Creature)) {
+                        JamCreature creature = entity.GetActor().GetComponent<JamCreature>();
+                        creature.RecomputeMove(2);
+                    }
                 }
+                usesRemaining--;
             }
         }
     }
@@ -97,5 +100,13 @@ public class Conveyor : JamGridActor
         } else if (pushDir == new Vector2Int(0, -1)) {
             conveyorSprite.transform.eulerAngles = new Vector3(0,0,180);
         }
+    }
+
+    // is the tile in the specified direction not solid?
+    protected bool IsTileSolid(Vector2Int direction)
+    {
+        // look at the tile we're about to enter, return true if there's nothing there
+        var entities = gridData.Grid.GetCellEntities(gridData.Column + direction.x, gridData.Row + direction.y);
+        return entities.Any(i => i.GetActor().IsOfType(ActorTags.Solid));
     }
 }

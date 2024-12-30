@@ -153,13 +153,13 @@ public class JamCoordinator : MonoBehaviour
     }
 
     void UpdateStage() {
-        if (score > 500) {
+        if (score > 1000) {
             stage = GameStage.GreenPurple;
-        } else if (score > 200) {
+        } else if (score > 400) {
             stage = GameStage.AddConveyor;
-        } else if (score > 100) {
+        } else if (score > 200) {
             stage = GameStage.BlueYellow;
-        } else if (score > 30) {
+        } else if (score > 60) {
             stage = GameStage.AddFood;
         } else {
             stage = GameStage.RedCyan;
