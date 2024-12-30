@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueGuy_0: -5499544224780702033
+      BlueGuy_1: -231362862850869598
+      BlueGuy_2: 1079620531267104112
+      BlueGuy_3: -7812357758762612561
+      BlueGuy_4: 3587233461515737976
+      BlueGuy_5: -5721162282634842783
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

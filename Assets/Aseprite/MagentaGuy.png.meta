@@ -447,7 +447,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MagentaGuy_0: -7426515408206656492
+      MagentaGuy_1: -4044999626013228941
+      MagentaGuy_10: 2683066095003332339
+      MagentaGuy_11: 2659563321123326913
+      MagentaGuy_12: 6605134369238299492
+      MagentaGuy_2: -3996133045336258195
+      MagentaGuy_3: -6879055517681480424
+      MagentaGuy_4: -508771744415243206
+      MagentaGuy_5: 4260005848818092736
+      MagentaGuy_6: -6691151443582416971
+      MagentaGuy_7: -2842289010823783831
+      MagentaGuy_8: -7879518984926762601
+      MagentaGuy_9: -1619066096788908665
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

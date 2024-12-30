@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &371641682805802158
+--- !u!1001 &8250263089575720566
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 115032461777665110, guid: 62fd661280f02ef4c9dddf9d93201b24, type: 3}
       propertyPath: m_Name
-      value: WallCard
+      value: CyanCreatureSpawnCard
       objectReference: {fileID: 0}
     - target: {fileID: 2911773748820570655, guid: 62fd661280f02ef4c9dddf9d93201b24, type: 3}
-      propertyPath: hovered
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: -7789502940778430762, guid: 8cc2c1bc1f3a018459da8f3119af6683, type: 3}
     - target: {fileID: 2911773748820570655, guid: 62fd661280f02ef4c9dddf9d93201b24, type: 3}
       propertyPath: briefText
-      value: Construct Wall
+      value: Cyan Creature
       objectReference: {fileID: 0}
     - target: {fileID: 3816679207862272183, guid: 62fd661280f02ef4c9dddf9d93201b24, type: 3}
       propertyPath: prefabs.Array.size
@@ -27,7 +27,7 @@ PrefabInstance:
     - target: {fileID: 3816679207862272183, guid: 62fd661280f02ef4c9dddf9d93201b24, type: 3}
       propertyPath: 'prefabs.Array.data[0]'
       value: 
-      objectReference: {fileID: 6853093233363719467, guid: 84d7ebfa8fd0c774286eae684938a042, type: 3}
+      objectReference: {fileID: 4379958838130181377, guid: 8b17df940de34cf45b8c9cfb319f1d86, type: 3}
     - target: {fileID: 7249908239351473350, guid: 62fd661280f02ef4c9dddf9d93201b24, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

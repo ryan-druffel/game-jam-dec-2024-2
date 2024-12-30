@@ -20,8 +20,9 @@ public class JamFood : JamGridActor
         }
     }
     
-    protected void Start()
+    protected override void Start()
     {
+        base.Start();
         Vector3 zAligned = transform.position;
         zAligned.z = priority;
         transform.position = zAligned;
@@ -57,6 +58,14 @@ public class JamFood : JamGridActor
                         toSpawn = ActorPrefabs.RedCreature;
                     } else if (entity.GetActor().IsOfType(ActorTags.Cyan)) {
                         toSpawn = ActorPrefabs.CyanCreature;
+                    } else if (entity.GetActor().IsOfType(ActorTags.Blue)) {
+                        toSpawn = ActorPrefabs.BlueCreature;
+                    } else if (entity.GetActor().IsOfType(ActorTags.Yellow)) {
+                        toSpawn = ActorPrefabs.YellowCreature;
+                    } else if (entity.GetActor().IsOfType(ActorTags.Green)) {
+                        toSpawn = ActorPrefabs.GreenCreature;
+                    } else if (entity.GetActor().IsOfType(ActorTags.Pink)) {
+                        toSpawn = ActorPrefabs.PinkCreature;
                     }
                 }
             }
@@ -90,12 +99,5 @@ public class JamFood : JamGridActor
                 countdownSprite.visible = false;
             }
         }
-    }
-
-    // snap to the current position
-    protected void SnapToGrid()
-    {
-        Vector2 gridPos = gridData.GetXY();
-        transform.position = new Vector3(gridPos.x, gridPos.y, transform.position.z);
     }
 }

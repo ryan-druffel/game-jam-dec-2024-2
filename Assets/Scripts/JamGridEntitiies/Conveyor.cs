@@ -23,8 +23,9 @@ public class Conveyor : JamGridActor
         }
     }
     
-    protected void Start()
+    protected override void Start()
     {
+        base.Start();
         Vector3 zAligned = transform.position;
         zAligned.z = priority;
         transform.position = zAligned;
@@ -82,13 +83,6 @@ public class Conveyor : JamGridActor
                 countdownSprite.visible = false;
             }
         }
-    }
-
-    // snap to the current position
-    protected void SnapToGrid()
-    {
-        Vector2 gridPos = gridData.GetXY();
-        transform.position = new Vector3(gridPos.x, gridPos.y, transform.position.z);
     }
 
     // snap to the current position

@@ -265,8 +265,16 @@ MonoBehaviour:
   stepsPerSpawn: 8
   lastSpawnStep: 0
   testPrefab: {fileID: 338046285195720952, guid: ef982f614173c43499fd53800eded6c6, type: 3}
-  redAndBlueCards: []
-  redAndBlueChances: []
+  redAndBlueCards:
+  - {fileID: 338046285195720952, guid: ef982f614173c43499fd53800eded6c6, type: 3}
+  - {fileID: 8564967772921725547, guid: d486ea12c894fb34298025044983d054, type: 3}
+  - {fileID: 8351503276768234016, guid: 230330e7bcc5c0d4ba0ec79d6bddd05e, type: 3}
+  - {fileID: 7215366267866394191, guid: b4344fc00da165141b6801f237de596d, type: 3}
+  redAndBlueChances:
+  - 4
+  - 0.5
+  - 0.5
+  - 1
   addFoodCards: []
   addFoodChances: []
   blueYellowCards: []
