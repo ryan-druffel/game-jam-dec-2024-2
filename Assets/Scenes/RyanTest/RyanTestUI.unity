@@ -277,7 +277,7 @@ MonoBehaviour:
   - {fileID: 338046285195720952, guid: ef982f614173c43499fd53800eded6c6, type: 3}
   - {fileID: 7215366267866394191, guid: b4344fc00da165141b6801f237de596d, type: 3}
   - {fileID: 8564967772921725547, guid: d486ea12c894fb34298025044983d054, type: 3}
-  - {fileID: 4656148587344985211, guid: ef8ca0415b19f5549b6879b1cf9bb9d0, type: 3}
+  - {fileID: 8351503276768234016, guid: 230330e7bcc5c0d4ba0ec79d6bddd05e, type: 3}
   addFoodChances:
   - 6
   - 1

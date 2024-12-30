@@ -140,6 +140,7 @@ MonoBehaviour:
   initRow: 2
   initGrid: {fileID: 815231591}
   autoconnect: 1
+  lifetime: 15
 --- !u!114 &815231591 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2049721957151581682, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
@@ -240,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca93c0afc37a032449f89ca9d05d9915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theme: {r: 0.1754984, g: 0.16727483, b: 0.1981132, a: 0}
+  theme: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 0}
   controlCamera: {fileID: 1619688454}
 --- !u!4 &1606224689
 Transform:
@@ -773,10 +774,22 @@ PrefabInstance:
     - target: {fileID: 2526548669807865476, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2061784122865106800, guid: 8bdd4b5ea85ba174ab54bb3c6c92e00f, type: 3}
+      objectReference: {fileID: 4036717355522960466, guid: 8bdd4b5ea85ba174ab54bb3c6c92e00f, type: 3}
     - target: {fileID: 2526548669807865476, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0.12941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526548669807865476, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526548669807865476, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526548669807865476, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2526548669807865476, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_DrawMode
