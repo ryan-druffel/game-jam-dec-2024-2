@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
-
+using NUnit.Framework;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class JamCreature : JamGridActor
 {
@@ -32,7 +34,7 @@ public class JamCreature : JamGridActor
 
     public override bool IsOfType(string type)
     {
-        return type.Equals(ActorTypes.Creature);
+        return type.Equals(ActorTags.Creature);
     }
 
     IEnumerator walkAnim;
@@ -101,19 +103,58 @@ public class JamCreature : JamGridActor
         return priority;
     }
 
+    // is the tile in the specified direction free?
+    protected bool IsTileFree(Vector2Int direction)
+    {
+        // look at the tile we're about to enter, return true if there's nothing there
+        var entities = gridData.Grid.GetCellEntities(gridData.Column + direction.x, gridData.Row + direction.y);
+        return entities.Count == 0;
+    }
+
+    // does the specified tile have an entity with a specific tag?
+    protected bool DoesTileContain(Vector2Int direction, string tag)
+    {
+        var entities = gridData.Grid.GetCellEntities(gridData.Column + direction.x, gridData.Row + direction.y);
+        return entities.Any(i => i.GetActor().IsOfType(tag));
+    }
+
+    // attempt to move onto a free orthagonal tile at random
+    protected Vector2Int ChooseTileRandomly()
+    {
+        // first, get free tiles available
+        List<Vector2Int> options = new List<Vector2Int>();
+        foreach (var direction in GridDirections.Orthogonal)
+        {
+            if (IsTileFree(direction)) { options.Add(direction); }
+        }
+
+        // if all are occupied, return nothing
+        if (options.Count == 0) return Vector2Int.zero;
+
+        // pick one at random
+        return options[(int)(options.Count * Random.value)];
+    }
+
+    protected delegate void StepIntent();
     public override void PreEvaluate() {
         StopWalkAnimation();
 
-        // look at the tile we're about to enter
-        var entities = gridData.Grid.GetCellEntities(gridData.Column + move.x, gridData.Row + move.y);
+        // pick a random direction to move
+        Vector2Int dir = ChooseTileRandomly();
+        if (dir != Vector2Int.zero)
+        {
+            // schedule movement
+            
+        }
 
-        // are any of these a wall?
-        if (entities.Any(i => i.GetActor().IsOfType(ActorTypes.Wall)))
+        /*
+        if (DoesTileContain(dir, ActorTags.Wall))
         {
             Debug.Log("There's a wall here!");
             // try to turn around
             move *= -1;
         }
+        */
     }
 
     public override void Step() {
@@ -125,4 +166,13 @@ public class JamCreature : JamGridActor
     public override void PostEvaluate() {
 
     }
+}
+
+public class GridDirections
+{
+    public static readonly Vector2Int North = new Vector2Int(0, -1);
+    public static readonly Vector2Int East = new Vector2Int(1, 0);
+    public static readonly Vector2Int South = new Vector2Int(0, 1);
+    public static readonly Vector2Int West = new Vector2Int(-1, 0);
+    public static readonly Vector2Int[] Orthogonal = new Vector2Int[] { North, East, South, West };
 }

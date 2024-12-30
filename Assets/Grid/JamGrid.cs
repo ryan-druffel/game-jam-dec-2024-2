@@ -249,7 +249,7 @@ public abstract class JamGridActor : MonoBehaviour
     }
 }
 
-public class ActorTypes
+public class ActorTags
 {
     public static string Creature { get { return "Creature"; } }
     public static string Wall { get { return "Wall"; } }

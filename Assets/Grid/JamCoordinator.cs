@@ -86,7 +86,7 @@ public class JamCoordinator : MonoBehaviour
             // Pre Evaluate
             foreach (JamGridEntity entity in entities)
             {
-                if (entity.GetActor() is not null)
+                if (entity.GetActor() != null)
                 {
                     entity.GetActor().PreEvaluate();
                 }
@@ -95,7 +95,7 @@ public class JamCoordinator : MonoBehaviour
             stepCount++;
             foreach (JamGridEntity entity in entities)
             {
-                if (entity.GetActor() is not null)
+                if (entity.GetActor() != null)
                 {
                     entity.GetActor().Step();
                 }
@@ -103,7 +103,7 @@ public class JamCoordinator : MonoBehaviour
             // Post Evaluate
             foreach (JamGridEntity entity in entities)
             {
-                if (entity.GetActor() is not null)
+                if (entity.GetActor() != null)
                 {
                     entity.GetActor().PostEvaluate();
                 }

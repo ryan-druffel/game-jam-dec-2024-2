@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JamYellowCreature : JamCreature
 {
-    static string[] typeTags = { ActorTypes.Creature, ActorTypes.Yellow };
+    static string[] typeTags = { ActorTags.Creature, ActorTags.Yellow };
     public override bool IsOfType(string type)
     {
         return typeTags.Contains(type);
@@ -34,7 +34,7 @@ public class JamYellowCreature : JamCreature
         if (gridData.Grid != null) {
             // if i am sharing a cell with a cyan guy, i'm out peace ya'll
             var entities = gridData.Grid.GetCellEntities(gridData.Column, gridData.Row);
-            if (entities.Any(i => i.GetActor().IsOfType(ActorTypes.Blue) && i.GetActor().IsOfType(ActorTypes.Creature)))
+            if (entities.Any(i => i.GetActor().IsOfType(ActorTags.Blue) && i.GetActor().IsOfType(ActorTags.Creature)))
             {
                 Debug.Log("grrr blue bad grrr");
                 ObliteratedByOtherCreature();

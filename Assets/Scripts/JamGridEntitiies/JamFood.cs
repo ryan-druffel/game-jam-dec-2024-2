@@ -23,7 +23,7 @@ public class JamFood : JamGridActor
     // JamGridActor Implementation
     public override bool IsOfType(string type)
     {
-        return type.Equals(ActorTypes.Food);
+        return type.Equals(ActorTags.Food);
     }
 
     public override JamGridEntity GetGridEntity() {
@@ -45,10 +45,10 @@ public class JamFood : JamGridActor
         List<JamGridEntity> entities = gridData.Grid.GetCellEntities(gridData.Column, gridData.Row);
         if (toSpawn == null && stepsUntilActive <= 0) {
             foreach (JamGridEntity entity in entities) {
-                if (entity.GetActor().IsOfType(ActorTypes.Creature)) {
-                    if (entity.GetActor().IsOfType(ActorTypes.Red)) {
+                if (entity.GetActor().IsOfType(ActorTags.Creature)) {
+                    if (entity.GetActor().IsOfType(ActorTags.Red)) {
                         toSpawn = ActorPrefabs.RedCreature;
-                    } else if (entity.GetActor().IsOfType(ActorTypes.Cyan)) {
+                    } else if (entity.GetActor().IsOfType(ActorTags.Cyan)) {
                         toSpawn = ActorPrefabs.CyanCreature;
                     }
                 }
@@ -56,7 +56,7 @@ public class JamFood : JamGridActor
         } else if (toSpawn != null) {
             bool noCreaturesOnCell = true;
             foreach (JamGridEntity entity in entities) {
-                if (entity.GetActor().IsOfType(ActorTypes.Creature)) {
+                if (entity.GetActor().IsOfType(ActorTags.Creature)) {
                     noCreaturesOnCell = false;
                     break;
                 }

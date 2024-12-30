@@ -31,7 +31,7 @@ public class JamWall : JamGridActor
 
     public override bool IsOfType(string type)
     {
-        return type.ToLower().Equals(ActorTypes.Wall.ToLower());
+        return type.ToLower().Equals(ActorTags.Wall.ToLower());
     }
 
     public override void PreEvaluate()
