@@ -21,7 +21,6 @@ public class EffectCardUI : MonoBehaviour
     [SerializeField]
     SpriteRenderer selectCellImage;
     [SerializeField]
-
     EffectCard targetCard;
     public bool targetCellValid { get; private set; }
     [SerializeField]
@@ -29,13 +28,15 @@ public class EffectCardUI : MonoBehaviour
     List<EffectCard> effectCards;
     [SerializeField]
 
-    List<Transform> effectCardsSpots;
+    List<RectTransform> effectCardsSpots;
+
+    public Transform cardStorageSpot;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         if (effectCards == null) effectCards = new List<EffectCard>();
-        if (effectCardsSpots == null) effectCardsSpots = new List<Transform>();
+        if (effectCardsSpots == null) effectCardsSpots = new List<RectTransform>();
     }
 
     void Start()

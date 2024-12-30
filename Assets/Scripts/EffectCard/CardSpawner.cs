@@ -113,8 +113,8 @@ public class CardSpawner : MonoBehaviour
         GameObject newObject = null;
         if (prefab != null) {
             newObject = Instantiate(prefab);
-            newObject.transform.SetParent(transform.parent, false);
-            newObject.transform.position = spawnLocation.position;
+            // newObject.transform.SetParent(tra, false);
+            // newObject.transform.position = spawnLocation.position;
             effectCardUI.AddCard(newObject.GetComponent<EffectCard>());
         }
         return newObject;

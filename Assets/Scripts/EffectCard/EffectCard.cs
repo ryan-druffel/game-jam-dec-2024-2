@@ -25,7 +25,7 @@ public class EffectCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     bool isTargeted;
 
     [SerializeField]
-    public Transform targetPos;
+    public RectTransform targetPos;
 
     [SerializeField]
     bool hovered;
@@ -90,8 +90,9 @@ public class EffectCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     void MoveTowardsTargetPos(float delta) {
         if (targetPos != null) {
-            float positionChange = Mathf.Log((transform.position - targetPos.position).magnitude + 1.0f) * (transform.position - targetPos.position).magnitude / 0.1f;
-            transform.position = Vector3.MoveTowards(transform.position, targetPos.position, positionChange * delta);
+            // float positionChange = Mathf.Log((transform.position - targetPos.position).magnitude + 1.0f) * (transform.position - targetPos.position).magnitude / 0.1f;
+            // transform.position = Vector3.MoveTowards(transform.position, targetPos.position, positionChange * delta);
+            transform.SetParent(targetPos, false);
         }
     }
 

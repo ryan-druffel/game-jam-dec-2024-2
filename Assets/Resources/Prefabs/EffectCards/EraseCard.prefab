@@ -29,30 +29,6 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5897583470483036613, guid: 2f777d98820de134fb645e4fcd1c9a16, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5897583470483036613, guid: 2f777d98820de134fb645e4fcd1c9a16, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5897583470483036613, guid: 2f777d98820de134fb645e4fcd1c9a16, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5897583470483036613, guid: 2f777d98820de134fb645e4fcd1c9a16, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5897583470483036613, guid: 2f777d98820de134fb645e4fcd1c9a16, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5897583470483036613, guid: 2f777d98820de134fb645e4fcd1c9a16, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5897583470483036613, guid: 2f777d98820de134fb645e4fcd1c9a16, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -78,14 +54,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5897583470483036613, guid: 2f777d98820de134fb645e4fcd1c9a16, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5897583470483036613, guid: 2f777d98820de134fb645e4fcd1c9a16, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5897583470483036613, guid: 2f777d98820de134fb645e4fcd1c9a16, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5897583470483036613, guid: 2f777d98820de134fb645e4fcd1c9a16, type: 3}
@@ -125,4 +93,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac7f08b5355fa9243b40831e9ae905c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreBonus: 0
   tags: []
