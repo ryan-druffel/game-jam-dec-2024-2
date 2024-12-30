@@ -264,7 +264,16 @@ MonoBehaviour:
   spawnLocation: {fileID: 652322923}
   stepsPerSpawn: 3
   lastSpawnStep: 0
-  testPrefab: {fileID: 338046285195720952, guid: ef982f614173c43499fd53800eded6c6, type: 3}
+  redAndBlueStartCards: []
+  addFoodStartCards:
+  - {fileID: 7215366267866394191, guid: b4344fc00da165141b6801f237de596d, type: 3}
+  blueYellowStartCards:
+  - {fileID: 4656148587344985211, guid: ef8ca0415b19f5549b6879b1cf9bb9d0, type: 3}
+  - {fileID: 4934213570246445599, guid: 0de005d94e68cbb4e84edc6f815592e4, type: 3}
+  addConveyorStartCards: []
+  greenPurpleStartCards:
+  - {fileID: 7040436990730276715, guid: e494036d4a3a304449d1d1fd0d10d2e8, type: 3}
+  - {fileID: 7703767116858711322, guid: 55a923b4e3bf5b44baa3395e996c491b, type: 3}
   redAndBlueCards:
   - {fileID: 338046285195720952, guid: ef982f614173c43499fd53800eded6c6, type: 3}
   - {fileID: 8564967772921725547, guid: d486ea12c894fb34298025044983d054, type: 3}
@@ -300,7 +309,7 @@ MonoBehaviour:
   - 0.5
   - 0.5
   - 2
-  - 0.5
+  - 0.05
   addConveyorCards:
   - {fileID: 338046285195720952, guid: ef982f614173c43499fd53800eded6c6, type: 3}
   - {fileID: 7215366267866394191, guid: b4344fc00da165141b6801f237de596d, type: 3}
@@ -317,7 +326,7 @@ MonoBehaviour:
   - 0.5
   - 0.5
   - 0.5
-  - 0.5
+  - 0.1
   - 2
   greenPurpleCards:
   - {fileID: 4656148587344985211, guid: ef8ca0415b19f5549b6879b1cf9bb9d0, type: 3}
@@ -339,7 +348,7 @@ MonoBehaviour:
   - 0.5
   - 2
   - 10
-  - 1
+  - 0.25
   - 2
 --- !u!1 &288553218
 GameObject:
