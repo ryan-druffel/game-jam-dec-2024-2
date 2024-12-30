@@ -26,8 +26,18 @@ public class JamCoordinator : MonoBehaviour
     [SerializeField]
     private int score = 0;
     public int Score { get => score; }
+    [SerializeField]
     private int stepCount = 0;
-    public int StepCount { get => score; }
+    public int StepCount { get => stepCount; }
+    [SerializeField]
+    public enum GameStage {
+        RedCyan,
+        AddFood,
+        BlueYellow,
+        GreenPurple
+    }
+    private GameStage stage = 0;
+    public GameStage Stage { get => stage; }
 
     // Scoring stuff
     [SerializeField]
@@ -51,10 +61,13 @@ public class JamCoordinator : MonoBehaviour
     void Start()
     {
         Debug.Assert(_grid != null, "Grid not assigned to coordinator");
-        StartCoroutine(StepLoop());
 
         // Setup Timer
         stepTimer = stepTime + stepPause + initPause;
+        stepCount = 0;
+        score = 0;
+        
+        StartCoroutine(StepLoop());
     }
     
 

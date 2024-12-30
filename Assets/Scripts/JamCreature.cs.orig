@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
+using NUnit.Framework;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -56,7 +56,11 @@ public class JamCreature : JamGridActor
         // move towards the destination until it is reached
         while (transform.position != dest)
         {
+<<<<<<< HEAD
+            if (JamCoordinator.Instance.TimeScale > 0) transform.position = Vector3.MoveTowards(transform.position, dest, _scaledTime / JamCoordinator.Instance.StepDuration);
+=======
             if (JamCoordinator.Instance.TimeScale > 0) transform.position = Vector3.MoveTowards(transform.position, dest, Time.deltaTime * speedMult / JamCoordinator.Instance.StepDuration);
+>>>>>>> origin/main
             yield return null;
         }
 
@@ -64,12 +68,7 @@ public class JamCreature : JamGridActor
         SnapToGrid();
     }
 
-    public void RecomputeMove(float speedMult = 1) {
-        StopWalkAnimation(false);
-        walkAnim = WalkAnimation(gridData.GetXY(), speedMult);
-        StartCoroutine(walkAnim);
-    }
-
+<<<<<<< HEAD
     // dies after a time delay
     IEnumerator FadeToDeath()
     {
@@ -86,6 +85,17 @@ public class JamCreature : JamGridActor
             yield return null;
         }
 
+=======
+    public void RecomputeMove(float speedMult = 1) {
+        StopWalkAnimation(false);
+        walkAnim = WalkAnimation(gridData.GetXY(), speedMult);
+        StartCoroutine(walkAnim);
+    }
+
+    protected void ObliteratedByOtherCreature() {
+        JamCoordinator.Instance.GameOver = true;
+        // eliminate self
+>>>>>>> origin/main
         Destroy(gameObject);
     }
 

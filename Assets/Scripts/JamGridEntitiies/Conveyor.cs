@@ -1,16 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JamFood : JamGridActor
+public class Conveyor : JamGridActor
 {
     [SerializeField]
     protected bool autoconnect = false;
-    public int priority = 5;
+    public int priority = 4;
     [SerializeField]
-    public int stepsUntilActive = 0;
+    public int usesRemaining = 5;
+    [SerializeField]
+    SpriteRenderer conveyorSprite;
     [SerializeField]
     CountdownSprite countdownSprite;
-    GameObject toSpawn;
+    [SerializeField]
+    Vector2Int pushDir = new Vector2Int(1, 0);
     
     protected void Awake()
     {
@@ -30,7 +33,7 @@ public class JamFood : JamGridActor
     // JamGridActor Implementation
     public override bool IsOfType(string type)
     {
-        return type.Equals(ActorTags.Food);
+        return type.Equals(ActorTypes.Food);
     }
 
     public override JamGridEntity GetGridEntity() {
@@ -45,34 +48,21 @@ public class JamFood : JamGridActor
     }
 
     public override void Step() {
-        if (stepsUntilActive > 0) stepsUntilActive --;
+        List<JamGridEntity> entities = gridData.Grid.GetCellEntities(gridData.Column, gridData.Row);
+        foreach (JamGridEntity entity in entities) {
+            if (entity != gridData) {
+                entity.MoveRelative(pushDir.x, pushDir.y);
+                usesRemaining--;
+                if (entity.GetActor().IsOfType(ActorTypes.Creature)) {
+                    JamCreature creature = entity.GetActor().GetComponent<JamCreature>();
+                    creature.RecomputeMove(2);
+                }
+            }
+        }
     }
 
     public override void PostEvaluate() {
-        List<JamGridEntity> entities = gridData.Grid.GetCellEntities(gridData.Column, gridData.Row);
-        if (toSpawn == null && stepsUntilActive <= 0) {
-            foreach (JamGridEntity entity in entities) {
-                if (entity.GetActor().IsOfType(ActorTags.Creature)) {
-                    if (entity.GetActor().IsOfType(ActorTags.Red)) {
-                        toSpawn = ActorPrefabs.RedCreature;
-                    } else if (entity.GetActor().IsOfType(ActorTags.Cyan)) {
-                        toSpawn = ActorPrefabs.CyanCreature;
-                    }
-                }
-            }
-        } else if (toSpawn != null) {
-            bool noCreaturesOnCell = true;
-            foreach (JamGridEntity entity in entities) {
-                if (entity.GetActor().IsOfType(ActorTags.Creature)) {
-                    noCreaturesOnCell = false;
-                    break;
-                }
-            }
-            if (noCreaturesOnCell) {
-                gridData.Grid.SpawnActorAtCell(gridData.Column, gridData.Row, toSpawn);
-                Destroy(gameObject);
-            }
-        }
+        if (usesRemaining <= 0) Destroy (gameObject);
     }
 
     // Update is called once per frame
@@ -81,10 +71,12 @@ public class JamFood : JamGridActor
         // snap to target position to be sure
         SnapToGrid();
 
+        RotateSprite();
+
         // Update countdown timer
         if (countdownSprite != null) {
-            countdownSprite.count = stepsUntilActive;
-            if (stepsUntilActive > 0) {
+            countdownSprite.count = usesRemaining;
+            if (usesRemaining > 0) {
                 countdownSprite.visible = true;
             } else {
                 countdownSprite.visible = false;
@@ -97,5 +89,19 @@ public class JamFood : JamGridActor
     {
         Vector2 gridPos = gridData.GetXY();
         transform.position = new Vector3(gridPos.x, gridPos.y, transform.position.z);
+    }
+
+    // snap to the current position
+    protected void RotateSprite()
+    {
+        if (pushDir == new Vector2Int(1, 0)) {
+            conveyorSprite.transform.eulerAngles = new Vector3(0,0,90);
+        } else if (pushDir == new Vector2Int(0, 1)) {
+            conveyorSprite.transform.eulerAngles = new Vector3(0,0,0);
+        } else if (pushDir == new Vector2Int(-1, 0)) {
+            conveyorSprite.transform.eulerAngles = new Vector3(0,0,270);
+        } else if (pushDir == new Vector2Int(0, -1)) {
+            conveyorSprite.transform.eulerAngles = new Vector3(0,0,180);
+        }
     }
 }
