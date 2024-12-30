@@ -339,7 +339,7 @@ PrefabInstance:
       objectReference: {fileID: 815231591}
     - target: {fileID: 6761557109643991392, guid: 8b17df940de34cf45b8c9cfb319f1d86, type: 3}
       propertyPath: initColumn
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6761557109643991392, guid: 8b17df940de34cf45b8c9cfb319f1d86, type: 3}
       propertyPath: autoconnect
@@ -404,7 +404,7 @@ PrefabInstance:
       objectReference: {fileID: 815231591}
     - target: {fileID: 1045481956048363015, guid: 117297cee9a0cbb46981ca3ccb358be5, type: 3}
       propertyPath: initRow
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1045481956048363015, guid: 117297cee9a0cbb46981ca3ccb358be5, type: 3}
       propertyPath: initGrid
@@ -412,7 +412,7 @@ PrefabInstance:
       objectReference: {fileID: 815231591}
     - target: {fileID: 1045481956048363015, guid: 117297cee9a0cbb46981ca3ccb358be5, type: 3}
       propertyPath: initColumn
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1045481956048363015, guid: 117297cee9a0cbb46981ca3ccb358be5, type: 3}
       propertyPath: autoconnect

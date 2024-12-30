@@ -146,7 +146,7 @@ public class EffectCardUI : MonoBehaviour
         targetCard = card;
     }
 
-    void DeselectTarget() {
+    public void DeselectTarget() {
         if (targetCard != null) targetCard.Unselect();
         targetCard = null;
     }

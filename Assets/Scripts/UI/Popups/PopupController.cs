@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
@@ -7,6 +8,8 @@ public class PopupController : MonoBehaviour
 {
     [SerializeField]
     EffectCardUI effectCardUI;
+
+    private static List<int> _popupsSeen = new List<int>();
 
     void Start()
     {
@@ -31,12 +34,30 @@ public class PopupController : MonoBehaviour
     }
 
     void DisplayPopup(Popup popup) {
-        popup.triggered = true;
-        effectCardUI.GridBox.GetCoordinator().SetTimescale(0);
         
-        Debug.Log("Popup Triggering");
+        StartCoroutine(WaitForOpening(popup));
+    }
+
+    IEnumerator WaitForOpening(Popup popup)
+    {
+        // prevents reactivating popups
+        if (popup.triggered) yield break;
+        popup.triggered = true;
+
+        // don't show previously seen popups
+        if (_popupsSeen.Contains(popup.prefab.GetInstanceID())) yield break;
+
+        // wait until the coordinator has fully completed a step and has entered the delay period
+        yield return new WaitUntil(() => JamCoordinator.Instance.NoActiveStep);
+
+        // pause the game and open the popup (and deselect active card)
+        effectCardUI.DeselectTarget();
+        effectCardUI.GridBox.GetCoordinator().SetTimescale(0);
         GameObject newObject = Instantiate(popup.prefab);
         newObject.transform.SetParent(transform, false);
+
+        // record the popup as seen
+        _popupsSeen.Add(popup.prefab.GetInstanceID());
     }
 
     class Popup {

@@ -1384,7 +1384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2526548669807865476, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3857099363662788551, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag

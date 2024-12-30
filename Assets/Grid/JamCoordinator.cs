@@ -22,6 +22,8 @@ public class JamCoordinator : MonoBehaviour
     public float StepDuration { get { return timeScale == 0 ? Mathf.Infinity : stepTime / timeScale; } }
     public float StepDelay { get { return timeScale == 0 ? Mathf.Infinity : stepPause / timeScale; } }
 
+    public bool NoActiveStep = true;
+
     // Scoring stuff
     [SerializeField]
     private int score = 0;
@@ -129,17 +131,17 @@ public class JamCoordinator : MonoBehaviour
                 }
             }
 
-            // report that we're done
+            // wait for animations
             while (stepTimer > stepPause){
                 yield return null;
             }
 
-            // Debug.Log("Step done!");
-
             // add a beat between steps
+            NoActiveStep = true;
             while (stepTimer > 0){
                 yield return null;
             }
+            NoActiveStep = false;
 
             stepTimer += stepTime + stepPause;
 
