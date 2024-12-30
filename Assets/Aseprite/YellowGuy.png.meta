@@ -1,25 +1,43 @@
 fileFormatVersion: 2
-guid: ec1ffbed5a509174da5bf5bcfe9588ed
+guid: 90fa04232d5c6534882de6813d471076
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5499544224780702033
-    second: BlueGuy_0
+      213: 3012379510716752470
+    second: YellowGuy_0
   - first:
-      213: -231362862850869598
-    second: BlueGuy_1
+      213: -2751878892740533325
+    second: YellowGuy_1
   - first:
-      213: 1079620531267104112
-    second: BlueGuy_2
+      213: 1708798443415525590
+    second: YellowGuy_2
   - first:
-      213: -7812357758762612561
-    second: BlueGuy_3
+      213: 3417214327013026330
+    second: YellowGuy_3
   - first:
-      213: 3587233461515737976
-    second: BlueGuy_4
+      213: 7617347378869787985
+    second: YellowGuy_4
   - first:
-      213: -5721162282634842783
-    second: BlueGuy_5
+      213: -8992737802721639990
+    second: YellowGuy_5
+  - first:
+      213: -6073198209547537863
+    second: YellowGuy_6
+  - first:
+      213: -4972292450258442465
+    second: YellowGuy_7
+  - first:
+      213: -2427802483865505080
+    second: YellowGuy_8
+  - first:
+      213: -6577220883174734200
+    second: YellowGuy_9
+  - first:
+      213: 7619631783770786279
+    second: YellowGuy_10
+  - first:
+      213: -2493847797826989237
+    second: YellowGuy_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,78 +146,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BlueGuy_0
+      name: YellowGuy_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2
-        width: 32
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fae25675aa1bda3b0800000000000000
-      internalID: -5499544224780702033
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BlueGuy_1
-      rect:
-        serializedVersion: 2
-        x: 31
+        x: 4
         y: 1
-        width: 31
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2a67e89b3b80accf0800000000000000
-      internalID: -231362862850869598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BlueGuy_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 2
-        width: 32
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 07de46237259bfe00800000000000000
-      internalID: 1079620531267104112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BlueGuy_3
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 1
-        width: 31
+        width: 25
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -209,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa800b2920ee49390800000000000000
-      internalID: -7812357758762612561
+      spriteID: 652efe8643f1ec920800000000000000
+      internalID: 3012379510716752470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlueGuy_4
+      name: YellowGuy_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 35
         y: 2
-        width: 32
-        height: 28
+        width: 26
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,20 +183,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 87b5a08c3d968c130800000000000000
-      internalID: 3587233461515737976
+      spriteID: 3b32e452abc5fc9d0800000000000000
+      internalID: -2751878892740533325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlueGuy_5
+      name: YellowGuy_2
       rect:
         serializedVersion: 2
-        x: 160
-        y: 2
-        width: 32
-        height: 27
+        x: 68
+        y: 1
+        width: 25
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,8 +205,206 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 16def2947395a90b0800000000000000
-      internalID: -5721162282634842783
+      spriteID: 6d8d584712fd6b710800000000000000
+      internalID: 1708798443415525590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowGuy_3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 3
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1aacf243526c6f20800000000000000
+      internalID: 3417214327013026330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowGuy_4
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d5948251146b960800000000000000
+      internalID: 7617347378869787985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowGuy_5
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 1
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac1cc8e2d90633380800000000000000
+      internalID: -8992737802721639990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowGuy_6
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 1
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9327165d76aa7bba0800000000000000
+      internalID: -6073198209547537863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowGuy_7
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 1
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f172dfe5c5edefab0800000000000000
+      internalID: -4972292450258442465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowGuy_8
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 1
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c2b2640186be4ed0800000000000000
+      internalID: -2427802483865505080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowGuy_9
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 1
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 886c611547409b4a0800000000000000
+      internalID: -6577220883174734200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowGuy_10
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e90fee9cbe5eb960800000000000000
+      internalID: 7619631783770786279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowGuy_11
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b43d1ae04a2146dd0800000000000000
+      internalID: -2493847797826989237
       vertices: []
       indices: 
       edges: []
@@ -272,13 +422,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      BlueGuy_0: -5499544224780702033
-      BlueGuy_1: -231362862850869598
-      BlueGuy_2: 1079620531267104112
-      BlueGuy_3: -7812357758762612561
-      BlueGuy_4: 3587233461515737976
-      BlueGuy_5: -5721162282634842783
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

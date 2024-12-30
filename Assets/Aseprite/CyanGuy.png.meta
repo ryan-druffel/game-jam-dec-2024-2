@@ -1,46 +1,49 @@
 fileFormatVersion: 2
-guid: 1269a1bb94be5c54c924c702b47d5d82
+guid: f84cf203fffe3cd4c94153c624ff0a6d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7426515408206656492
-    second: MagentaGuy_0
+      213: 323373122564314020
+    second: CyanGuy_0
   - first:
-      213: -4044999626013228941
-    second: MagentaGuy_1
+      213: 5306253117485472365
+    second: CyanGuy_1
   - first:
-      213: -3996133045336258195
-    second: MagentaGuy_2
+      213: 7899191843374515907
+    second: CyanGuy_2
   - first:
-      213: -6879055517681480424
-    second: MagentaGuy_3
+      213: 9054071605142361310
+    second: CyanGuy_3
   - first:
-      213: -508771744415243206
-    second: MagentaGuy_4
+      213: 5403514384016304522
+    second: CyanGuy_4
   - first:
-      213: 4260005848818092736
-    second: MagentaGuy_5
+      213: -8583192507338468637
+    second: CyanGuy_5
   - first:
-      213: -6691151443582416971
-    second: MagentaGuy_6
+      213: -1987244766669562200
+    second: CyanGuy_6
   - first:
-      213: -2842289010823783831
-    second: MagentaGuy_7
+      213: -6627365913892015714
+    second: CyanGuy_7
   - first:
-      213: -7879518984926762601
-    second: MagentaGuy_8
+      213: 5317359040596158748
+    second: CyanGuy_8
   - first:
-      213: -1619066096788908665
-    second: MagentaGuy_9
+      213: 8992428206518479829
+    second: CyanGuy_9
   - first:
-      213: 2683066095003332339
-    second: MagentaGuy_10
+      213: -4636181428878054814
+    second: CyanGuy_10
   - first:
-      213: 2659563321123326913
-    second: MagentaGuy_11
+      213: 5203319188167186309
+    second: CyanGuy_11
   - first:
-      213: 6605134369238299492
-    second: MagentaGuy_12
+      213: -1943163549009354365
+    second: CyanGuy_12
+  - first:
+      213: -2112091412975030668
+    second: CyanGuy_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -149,13 +152,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MagentaGuy_0
+      name: CyanGuy_0
       rect:
         serializedVersion: 2
         x: 2
-        y: 1
-        width: 27
-        height: 28
+        y: 4
+        width: 26
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41c80e66597bfe890800000000000000
-      internalID: -7426515408206656492
+      spriteID: 4a3da54442adc7400800000000000000
+      internalID: 323373122564314020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MagentaGuy_1
+      name: CyanGuy_1
       rect:
         serializedVersion: 2
         x: 34
-        y: 1
-        width: 27
-        height: 28
+        y: 4
+        width: 26
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,41 +189,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 370c4ee75464dd7c0800000000000000
-      internalID: -4044999626013228941
+      spriteID: d6ad70cb81993a940800000000000000
+      internalID: 5306253117485472365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MagentaGuy_2
+      name: CyanGuy_2
       rect:
         serializedVersion: 2
         x: 66
-        y: 1
-        width: 27
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d69488dea22ea88c0800000000000000
-      internalID: -3996133045336258195
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagentaGuy_3
-      rect:
-        serializedVersion: 2
-        x: 96
         y: 4
-        width: 29
+        width: 26
         height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -230,107 +211,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81d8766147fa880a0800000000000000
-      internalID: -6879055517681480424
+      spriteID: 3c6400d31219f9d60800000000000000
+      internalID: 7899191843374515907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MagentaGuy_4
+      name: CyanGuy_3
       rect:
         serializedVersion: 2
-        x: 127
-        y: 1
-        width: 33
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a34af564bca70f8f0800000000000000
-      internalID: -508771744415243206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagentaGuy_5
-      rect:
-        serializedVersion: 2
-        x: 159
-        y: 1
-        width: 33
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0ca83efbfb49e1b30800000000000000
-      internalID: 4260005848818092736
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagentaGuy_6
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 1
-        width: 33
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5b78dea96314423a0800000000000000
-      internalID: -6691151443582416971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagentaGuy_7
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 1
-        width: 33
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 96a1ad824392e88d0800000000000000
-      internalID: -2842289010823783831
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagentaGuy_8
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 1
-        width: 32
+        x: 97
+        y: 5
+        width: 26
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -340,19 +233,151 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7996e7e0b3356a290800000000000000
-      internalID: -7879518984926762601
+      spriteID: ed41673872686ad70800000000000000
+      internalID: 9054071605142361310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MagentaGuy_9
+      name: CyanGuy_4
       rect:
         serializedVersion: 2
-        x: 287
-        y: 1
-        width: 32
+        x: 132
+        y: 4
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a89610604b32dfa40800000000000000
+      internalID: 5403514384016304522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyanGuy_5
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 7
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e2db49e3ef52e880800000000000000
+      internalID: -8583192507338468637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyanGuy_6
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 3
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ae18e0e963eb64e0800000000000000
+      internalID: -1987244766669562200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyanGuy_7
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 8
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e913fe980ddd604a0800000000000000
+      internalID: -6627365913892015714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyanGuy_8
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 2
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1922f5ffdd0bc940800000000000000
+      internalID: 5317359040596158748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyanGuy_9
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 2
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dbacb55fc58bcc70800000000000000
+      internalID: 8992428206518479829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyanGuy_10
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 3
+        width: 21
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -362,20 +387,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 785d40196fbe789e0800000000000000
-      internalID: -1619066096788908665
+      spriteID: 26ae571dd89f8afb0800000000000000
+      internalID: -4636181428878054814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MagentaGuy_10
+      name: CyanGuy_11
       rect:
         serializedVersion: 2
-        x: 319
-        y: 1
-        width: 33
-        height: 25
+        x: 356
+        y: 2
+        width: 23
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,20 +409,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3fe619dd56a2c3520800000000000000
-      internalID: 2683066095003332339
+      spriteID: 587dda7bb37e53840800000000000000
+      internalID: 5203319188167186309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MagentaGuy_11
+      name: CyanGuy_12
       rect:
         serializedVersion: 2
-        x: 351
-        y: 1
-        width: 33
-        height: 27
+        x: 386
+        y: 3
+        width: 25
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,20 +431,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1cbc635efbaa8e420800000000000000
-      internalID: 2659563321123326913
+      spriteID: 3816fc82c0f7805e0800000000000000
+      internalID: -1943163549009354365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MagentaGuy_12
+      name: CyanGuy_13
       rect:
         serializedVersion: 2
-        x: 384
+        x: 420
         y: 4
-        width: 29
-        height: 25
+        width: 24
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -428,8 +453,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4633c2c96b62aab50800000000000000
-      internalID: 6605134369238299492
+      spriteID: 47e687cdc0850b2e0800000000000000
+      internalID: -2112091412975030668
       vertices: []
       indices: 
       edges: []
@@ -447,20 +472,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      MagentaGuy_0: -7426515408206656492
-      MagentaGuy_1: -4044999626013228941
-      MagentaGuy_10: 2683066095003332339
-      MagentaGuy_11: 2659563321123326913
-      MagentaGuy_12: 6605134369238299492
-      MagentaGuy_2: -3996133045336258195
-      MagentaGuy_3: -6879055517681480424
-      MagentaGuy_4: -508771744415243206
-      MagentaGuy_5: 4260005848818092736
-      MagentaGuy_6: -6691151443582416971
-      MagentaGuy_7: -2842289010823783831
-      MagentaGuy_8: -7879518984926762601
-      MagentaGuy_9: -1619066096788908665
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

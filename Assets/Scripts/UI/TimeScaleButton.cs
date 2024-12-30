@@ -55,6 +55,9 @@ public class TimeScaleButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
                 if (!hovered || !Input.GetMouseButton(0)) state = ButtonState.Idle;
                 break;
         }
+
+        if (effectCardUI != null && effectCardUI.GridBox != null && effectCardUI.GridBox.GetCoordinator() != null && effectCardUI.GridBox.GetCoordinator().TimeScale == timeScale) 
+            GetComponent<UnityEngine.UI.Image>().sprite = pressedSprite;
         
         
     }

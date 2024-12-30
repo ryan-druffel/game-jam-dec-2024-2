@@ -123,7 +123,7 @@ MonoBehaviour:
   initGrid: {fileID: 0}
   autoconnect: 0
   priority: 5
-  stepsUntilActive: 0
+  stepsUntilActive: 10
   countdownSprite: {fileID: 5023894865464125129}
 --- !u!1 &7194843364698293539
 GameObject:

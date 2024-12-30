@@ -242,7 +242,7 @@ public abstract class JamGridActor : MonoBehaviour
     public abstract void Step();
     public abstract void PostEvaluate();
 
-    protected void Start()
+    protected virtual void Start()
     {
         SnapToGrid();
     }
@@ -283,8 +283,13 @@ public class ActorPrefabs
     static GameObject redCreature;
     public static GameObject RedCreature => GetPrefab("Prefabs/Red Creature", ref redCreature);
     static GameObject cyanCreature;
-    public static GameObject CyanCreature => GetPrefab("Prefabs/Cyan Creature", ref redCreature);
-    // public static GameObject CyanCreature { get { return "Creature"; } }
-    // public static GameObject Wall { get { return "Wall"; } }
-    // public static GameObject Food { get { return "Food"; } }
+    public static GameObject CyanCreature => GetPrefab("Prefabs/Cyan Creature", ref cyanCreature);
+    static GameObject blueCreature;
+    public static GameObject BlueCreature => GetPrefab("Prefabs/Blue Creature", ref blueCreature);
+    static GameObject yellowCreature;
+    public static GameObject YellowCreature => GetPrefab("Prefabs/Yellow Creature", ref yellowCreature);
+    static GameObject greenCreature;
+    public static GameObject GreenCreature => GetPrefab("Prefabs/Green Creature", ref greenCreature);
+    static GameObject pinkCreature;
+    public static GameObject PinkCreature => GetPrefab("Prefabs/Pink Creature", ref pinkCreature);
 }

@@ -40,16 +40,59 @@ public class CardSpawner : MonoBehaviour
     GameObject testPrefab;
 
     void SpawnRandomCard(JamCoordinator.GameStage stage = 0) {
-        GameObject go = SpawnCard(testPrefab);
-        go.GetComponent<EffectCardEffect>().Randomize();
+        GameObject prefab = null;
+        switch (stage) {
+            case JamCoordinator.GameStage.RedCyan:
+                Debug.Log("Red and Cyan Card");
+                prefab = ChooseRandomPrefabFromList(redAndBlueCards, redAndBlueChances);
+                break;
+            case JamCoordinator.GameStage.AddFood:
+                prefab = ChooseRandomPrefabFromList(addFoodCards, addFoodChances);
+                break;
+            case JamCoordinator.GameStage.BlueYellow:
+                prefab = ChooseRandomPrefabFromList(blueYellowCards, blueYellowChances);
+                break;
+            case JamCoordinator.GameStage.AddConveyor:
+                prefab = ChooseRandomPrefabFromList(addConveyorCards, addConveyorChances);
+                break;
+            case JamCoordinator.GameStage.GreenPurple:
+                prefab = ChooseRandomPrefabFromList(greenPurpleCards, greenPurpleChances);
+                break;
+        }
+        GameObject go = SpawnCard(prefab);
+        if (go != null) go.GetComponent<EffectCardEffect>().Randomize();
+    }
+
+    GameObject ChooseRandomPrefabFromList(List<GameObject> prefabList, List<float> weightList) {
+        float totalweight = 0;
+        foreach (float weight in weightList) {
+            totalweight += weight;
+        }
+        float rand = Random.Range(0.0f, totalweight);
+        Debug.Log("Total Weight: " + totalweight);
+        float accumWeight = 0;
+        int indexOfSelection = -1;
+        for (int i = 0; i < weightList.Count && indexOfSelection == -1; i++) {
+            accumWeight += weightList[i];
+            if (rand <= accumWeight) {
+                indexOfSelection = i;
+            }
+        }
+        if (indexOfSelection < prefabList.Count && indexOfSelection >= 0) {
+            return prefabList[indexOfSelection];
+        }
+        return null;
     }
 
     GameObject SpawnCard(GameObject prefab) {
         Debug.Log("Summoning Card");
-        GameObject newObject = Instantiate(prefab);
-        newObject.transform.SetParent(transform.parent, false);
-        newObject.transform.position = spawnLocation.position;
-        effectCardUI.AddCard(newObject.GetComponent<EffectCard>());
+        GameObject newObject = null;
+        if (prefab != null) {
+            newObject = Instantiate(prefab);
+            newObject.transform.SetParent(transform.parent, false);
+            newObject.transform.position = spawnLocation.position;
+            effectCardUI.AddCard(newObject.GetComponent<EffectCard>());
+        }
         return newObject;
     }
 

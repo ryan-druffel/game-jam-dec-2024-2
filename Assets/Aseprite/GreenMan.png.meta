@@ -347,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GreenMan_0: 3390435897099418679
+      GreenMan_1: 285892839947192163
+      GreenMan_2: 5837052347061615116
+      GreenMan_3: -2527516452863844149
+      GreenMan_4: 5854404237098734224
+      GreenMan_5: -7639240655697171362
+      GreenMan_6: -8121587285949806919
+      GreenMan_7: 1845147176121281378
+      GreenMan_8: 2914433480115941800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
