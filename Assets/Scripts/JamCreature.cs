@@ -75,8 +75,8 @@ public class JamCreature : JamGridActor
             yield return null;
         }
         
-        Destroy(gameObject);
         JamCoordinator.Instance.GameOver = true;
+        Destroy(gameObject);
     }
 
     protected void ObliteratedByOtherCreature() {
