@@ -34,6 +34,7 @@ public class JamCoordinator : MonoBehaviour
         RedCyan,
         AddFood,
         BlueYellow,
+        AddConveyor,
         GreenPurple
     }
     private GameStage stage = 0;
@@ -76,6 +77,8 @@ public class JamCoordinator : MonoBehaviour
     void Update()
     {
         stepTimer -= Time.deltaTime * timeScale;
+
+        UpdateStage();
     }
 
     // Update is called once per frame
@@ -141,5 +144,19 @@ public class JamCoordinator : MonoBehaviour
         }
 
         // Debug.LogWarning("No entities left to step! Closing loop...");
+    }
+
+    void UpdateStage() {
+        if (score > 500) {
+            stage = GameStage.GreenPurple;
+        } else if (score > 200) {
+            stage = GameStage.AddConveyor;
+        } else if (score > 100) {
+            stage = GameStage.BlueYellow;
+        } else if (score > 30) {
+            stage = GameStage.AddFood;
+        } else {
+            stage = GameStage.RedCyan;
+        }
     }
 }
