@@ -10,7 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2132087810866281182, guid: 35dfcf5744cb96c4c9fb76e20330a033, type: 3}
       propertyPath: m_Name
-      value: Conveyor
+      value: Conveyor Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086687312699654981, guid: 35dfcf5744cb96c4c9fb76e20330a033, type: 3}
+      propertyPath: pushDir.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086687312699654981, guid: 35dfcf5744cb96c4c9fb76e20330a033, type: 3}
+      propertyPath: pushDir.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7786109342715838481, guid: 35dfcf5744cb96c4c9fb76e20330a033, type: 3}
       propertyPath: m_LocalPosition.x

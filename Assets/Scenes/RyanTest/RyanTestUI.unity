@@ -270,7 +270,9 @@ MonoBehaviour:
   blueYellowStartCards:
   - {fileID: 4656148587344985211, guid: ef8ca0415b19f5549b6879b1cf9bb9d0, type: 3}
   - {fileID: 4934213570246445599, guid: 0de005d94e68cbb4e84edc6f815592e4, type: 3}
-  addConveyorStartCards: []
+  addConveyorStartCards:
+  - {fileID: 523389570892237898, guid: 11f76552582e103439ad3b1778d0c5bb, type: 3}
+  - {fileID: 6765703503163478922, guid: 899452b6be2a7954b9bf52c4ba9b5148, type: 3}
   greenPurpleStartCards:
   - {fileID: 7040436990730276715, guid: e494036d4a3a304449d1d1fd0d10d2e8, type: 3}
   - {fileID: 7703767116858711322, guid: 55a923b4e3bf5b44baa3395e996c491b, type: 3}
@@ -319,6 +321,10 @@ MonoBehaviour:
   - {fileID: 4934213570246445599, guid: 0de005d94e68cbb4e84edc6f815592e4, type: 3}
   - {fileID: 5392467554363543620, guid: c984f9a612cef1346b0aac03228bfb83, type: 3}
   - {fileID: 1286453607835703611, guid: 66a0973172fced34b8893c8b7f8bb010, type: 3}
+  - {fileID: 523389570892237898, guid: 11f76552582e103439ad3b1778d0c5bb, type: 3}
+  - {fileID: 6765703503163478922, guid: 899452b6be2a7954b9bf52c4ba9b5148, type: 3}
+  - {fileID: 1103268073007859033, guid: f721680259ddd6f49916c148db357811, type: 3}
+  - {fileID: 5758299269262537591, guid: cfddc80ce84529342b34ffa2f5f3e06a, type: 3}
   addConveyorChances:
   - 10
   - 2
@@ -328,6 +334,10 @@ MonoBehaviour:
   - 0.5
   - 0.1
   - 2
+  - 1
+  - 1
+  - 1
+  - 1
   greenPurpleCards:
   - {fileID: 4656148587344985211, guid: ef8ca0415b19f5549b6879b1cf9bb9d0, type: 3}
   - {fileID: 8351503276768234016, guid: 230330e7bcc5c0d4ba0ec79d6bddd05e, type: 3}
@@ -339,6 +349,10 @@ MonoBehaviour:
   - {fileID: 338046285195720952, guid: ef982f614173c43499fd53800eded6c6, type: 3}
   - {fileID: 5392467554363543620, guid: c984f9a612cef1346b0aac03228bfb83, type: 3}
   - {fileID: 1286453607835703611, guid: 66a0973172fced34b8893c8b7f8bb010, type: 3}
+  - {fileID: 523389570892237898, guid: 11f76552582e103439ad3b1778d0c5bb, type: 3}
+  - {fileID: 6765703503163478922, guid: 899452b6be2a7954b9bf52c4ba9b5148, type: 3}
+  - {fileID: 1103268073007859033, guid: f721680259ddd6f49916c148db357811, type: 3}
+  - {fileID: 5758299269262537591, guid: cfddc80ce84529342b34ffa2f5f3e06a, type: 3}
   greenPurpleChances:
   - 0.5
   - 0.5
@@ -350,6 +364,10 @@ MonoBehaviour:
   - 10
   - 0.25
   - 2
+  - 1
+  - 1
+  - 1
+  - 1
 --- !u!1 &288553218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,6 +2306,7 @@ MonoBehaviour:
   selectCellImage: {fileID: 1876446413}
   targetCard: {fileID: 0}
   effectCards:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
