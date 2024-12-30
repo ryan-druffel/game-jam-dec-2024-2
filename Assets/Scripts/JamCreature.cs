@@ -10,7 +10,6 @@ public class JamCreature : JamGridActor
 {
     [SerializeField]
     protected bool autoconnect = false;
-    public Vector2Int move;
     public int priority = 0;
     protected float _scaledTime;
     
@@ -20,11 +19,6 @@ public class JamCreature : JamGridActor
         if (autoconnect) {
             gridData.ConnectToGrid(initGrid);
         }
-    }
-
-    protected void Start()
-    {
-        SnapToGrid();
     }
 
     protected void Update()
@@ -93,13 +87,6 @@ public class JamCreature : JamGridActor
         StartCoroutine(FadeToDeath());
     }
 
-    // snap to the current position
-    protected void SnapToGrid()
-    {
-        Vector2 gridPos = gridData.GetXY();
-        transform.position = new Vector3(gridPos.x, gridPos.y, transform.position.z);
-    }
-
     // JamGridActor Implementation
     public override JamGridEntity GetGridEntity() {
         return gridData;
@@ -109,12 +96,12 @@ public class JamCreature : JamGridActor
         return priority;
     }
 
-    // is the tile in the specified direction free?
+    // is the tile in the specified direction not solid?
     protected bool IsTileFree(Vector2Int direction)
     {
         // look at the tile we're about to enter, return true if there's nothing there
         var entities = gridData.Grid.GetCellEntities(gridData.Column + direction.x, gridData.Row + direction.y);
-        return entities.Count == 0;
+        return !entities.Any(i => i.GetActor().IsOfType(ActorTags.Solid));
     }
 
     // does the specified tile have an entity with a specific tag?
@@ -124,8 +111,7 @@ public class JamCreature : JamGridActor
         return entities.Any(i => i.GetActor().IsOfType(tag));
     }
 
-    // attempt to move onto a free orthagonal tile at random
-    protected Vector2Int ChooseTileRandomly()
+    protected Vector2Int ChooseFreeTileRandomly()
     {
         // first, get free tiles available
         List<Vector2Int> options = new List<Vector2Int>();
@@ -141,36 +127,45 @@ public class JamCreature : JamGridActor
         return options[(int)(options.Count * Random.value)];
     }
 
-    protected delegate void StepIntent();
+    protected Action StepIntent;
     public override void PreEvaluate() {
         StopWalkAnimation();
 
         // pick a random direction to move
-        Vector2Int dir = ChooseTileRandomly();
+        Vector2Int dir = ChooseFreeTileRandomly();
         if (dir != Vector2Int.zero)
         {
             // schedule movement
-            
+            StepIntent = () => {
+                StartWalkAnimation(gridData.GetRelativeXY(dir.x, dir.y));
+                gridData.MoveRelative(dir.x, dir.y);
+            };
         }
-
-        /*
-        if (DoesTileContain(dir, ActorTags.Wall))
-        {
-            Debug.Log("There's a wall here!");
-            // try to turn around
-            move *= -1;
-        }
-        */
     }
 
     public override void Step() {
-        StartWalkAnimation(gridData.GetRelativeXY(move.x, move.y));
-        gridData.MoveRelative(move.x, move.y);
-        // Debug.Log(transform.name + " is at " + gridData.GetColumn() + ", " + gridData.GetRow());
+        StepIntent?.Invoke();
     }
 
     public override void PostEvaluate() {
 
+    }
+
+    // does nothing but move either horizontally or vertically
+    protected void SingleAxisMovement(ref Vector2Int direction)
+    {
+        // move vertically, turn around if hitting a wall
+        if (!IsTileFree(direction)) direction *= -1; // turn around if next space isn't free
+
+        // if the other way isn't free either, do nothing 
+        if (!IsTileFree(direction)) { StepIntent = () => { }; return; }
+
+        // if it's free, schedule movement
+        Vector2Int dir = direction;
+        StepIntent = () => {
+            StartWalkAnimation(gridData.GetRelativeXY(dir.x, dir.y));
+            gridData.MoveRelative(dir.x, dir.y);
+        };
     }
 }
 

@@ -1,10 +1,20 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class JamRedCreature : JamCreature
 {
     static string[] typeTags = { ActorTags.Creature, ActorTags.Red };
+    private Vector2Int _dir; // the current direction
+
+    protected new void Start()
+    {
+        // pick a random vertical direction
+        _dir = (Random.value > 0.5f) ? GridDirections.East : GridDirections.West;
+        base.Start();
+    }
+
     public override bool IsOfType(string type)
     {
         return typeTags.Contains(type);
@@ -20,7 +30,8 @@ public class JamRedCreature : JamCreature
     }
 
     public override void PreEvaluate() {
-        base.PreEvaluate();
+        // horizontal movement
+        SingleAxisMovement(ref _dir);
     }
 
     public override void Step()

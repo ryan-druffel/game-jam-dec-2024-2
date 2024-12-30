@@ -1,31 +1,46 @@
 fileFormatVersion: 2
-guid: 2aa55549ed7e6c64baa05f8f20617aff
+guid: 1269a1bb94be5c54c924c702b47d5d82
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2509104081449943367
-    second: RedGuyIdle_0
+      213: -7426515408206656492
+    second: MagentaGuy_0
   - first:
-      213: -7921938428625703884
-    second: RedGuyIdle_1
+      213: -4044999626013228941
+    second: MagentaGuy_1
   - first:
-      213: 929329277427985024
-    second: RedGuyIdle_2
+      213: -3996133045336258195
+    second: MagentaGuy_2
   - first:
-      213: -6012540107312194833
-    second: RedGuyIdle_3
+      213: -6879055517681480424
+    second: MagentaGuy_3
   - first:
-      213: 1445317304300138625
-    second: RedGuyIdle_4
+      213: -508771744415243206
+    second: MagentaGuy_4
   - first:
-      213: 3413988903931507864
-    second: RedGuyIdle_5
+      213: 4260005848818092736
+    second: MagentaGuy_5
   - first:
-      213: -71225228743647529
-    second: RedGuyIdle_6
+      213: -6691151443582416971
+    second: MagentaGuy_6
   - first:
-      213: 2406540033446265743
-    second: RedGuyIdle_7
+      213: -2842289010823783831
+    second: MagentaGuy_7
+  - first:
+      213: -7879518984926762601
+    second: MagentaGuy_8
+  - first:
+      213: -1619066096788908665
+    second: MagentaGuy_9
+  - first:
+      213: 2683066095003332339
+    second: MagentaGuy_10
+  - first:
+      213: 2659563321123326913
+    second: MagentaGuy_11
+  - first:
+      213: 6605134369238299492
+    second: MagentaGuy_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -134,12 +149,78 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RedGuyIdle_0
+      name: MagentaGuy_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 2
+        y: 1
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41c80e66597bfe890800000000000000
+      internalID: -7426515408206656492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagentaGuy_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 370c4ee75464dd7c0800000000000000
+      internalID: -4044999626013228941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagentaGuy_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d69488dea22ea88c0800000000000000
+      internalID: -3996133045336258195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagentaGuy_3
+      rect:
+        serializedVersion: 2
+        x: 96
         y: 4
-        width: 20
+        width: 29
         height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -149,19 +230,85 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9be71b8b12fdd2dd0800000000000000
-      internalID: -2509104081449943367
+      spriteID: 81d8766147fa880a0800000000000000
+      internalID: -6879055517681480424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedGuyIdle_1
+      name: MagentaGuy_4
       rect:
         serializedVersion: 2
-        x: 38
-        y: 4
-        width: 20
+        x: 127
+        y: 1
+        width: 33
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a34af564bca70f8f0800000000000000
+      internalID: -508771744415243206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagentaGuy_5
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 1
+        width: 33
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ca83efbfb49e1b30800000000000000
+      internalID: 4260005848818092736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagentaGuy_6
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 1
+        width: 33
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b78dea96314423a0800000000000000
+      internalID: -6691151443582416971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagentaGuy_7
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 1
+        width: 33
         height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -171,19 +318,63 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43caf3da8fe9f0290800000000000000
-      internalID: -7921938428625703884
+      spriteID: 96a1ad824392e88d0800000000000000
+      internalID: -2842289010823783831
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedGuyIdle_2
+      name: MagentaGuy_8
       rect:
         serializedVersion: 2
-        x: 70
-        y: 4
-        width: 20
+        x: 255
+        y: 1
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7996e7e0b3356a290800000000000000
+      internalID: -7879518984926762601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagentaGuy_9
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 1
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 785d40196fbe789e0800000000000000
+      internalID: -1619066096788908665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagentaGuy_10
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 1
+        width: 33
         height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -193,19 +384,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08a2774dd04a5ec00800000000000000
-      internalID: 929329277427985024
+      spriteID: 3fe619dd56a2c3520800000000000000
+      internalID: 2683066095003332339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedGuyIdle_3
+      name: MagentaGuy_11
       rect:
         serializedVersion: 2
-        x: 102
+        x: 351
+        y: 1
+        width: 33
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cbc635efbaa8e420800000000000000
+      internalID: 2659563321123326913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagentaGuy_12
+      rect:
+        serializedVersion: 2
+        x: 384
         y: 4
-        width: 20
+        width: 29
         height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -215,96 +428,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fea1ed1d0aa2f8ca0800000000000000
-      internalID: -6012540107312194833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RedGuyIdle_4
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 4
-        width: 20
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 180f88e3e6cce0410800000000000000
-      internalID: 1445317304300138625
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RedGuyIdle_5
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 4
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 89476fde1dce06f20800000000000000
-      internalID: 3413988903931507864
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RedGuyIdle_6
-      rect:
-        serializedVersion: 2
-        x: 198
-        y: 4
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7de50b52805f20ff0800000000000000
-      internalID: -71225228743647529
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RedGuyIdle_7
-      rect:
-        serializedVersion: 2
-        x: 230
-        y: 4
-        width: 20
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f834257f86fb56120800000000000000
-      internalID: 2406540033446265743
+      spriteID: 4633c2c96b62aab50800000000000000
+      internalID: 6605134369238299492
       vertices: []
       indices: 
       edges: []

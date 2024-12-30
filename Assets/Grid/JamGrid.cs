@@ -242,6 +242,18 @@ public abstract class JamGridActor : MonoBehaviour
     public abstract void Step();
     public abstract void PostEvaluate();
 
+    protected void Start()
+    {
+        SnapToGrid();
+    }
+
+    // snap to the current position
+    protected void SnapToGrid()
+    {
+        Vector2 gridPos = gridData.GetXY();
+        transform.position = new Vector3(gridPos.x, gridPos.y, transform.position.z);
+    }
+
     // auto disconnect from grid on destruction
     protected void OnDestroy()
     {
@@ -252,7 +264,7 @@ public abstract class JamGridActor : MonoBehaviour
 public class ActorTags
 {
     public static string Creature { get { return "Creature"; } }
-    public static string Wall { get { return "Wall"; } }
+    public static string Solid { get { return "Solid"; } }
     public static string Food { get { return "Food"; } }
     public static string Cyan { get { return "Cyan"; } }
     public static string Red { get { return "Red"; } }
