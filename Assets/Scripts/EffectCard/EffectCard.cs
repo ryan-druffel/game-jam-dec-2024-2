@@ -110,6 +110,7 @@ public class EffectCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 public abstract class EffectCardEffect : MonoBehaviour
 {
+    public int scoreBonus = 0;
     public abstract void Randomize();
     public abstract void TriggerEffect(JamGrid grid, int x, int y);
     public abstract bool CanUseAt(JamGrid grid, int x, int y);

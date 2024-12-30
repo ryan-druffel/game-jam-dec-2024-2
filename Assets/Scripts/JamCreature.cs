@@ -75,7 +75,7 @@ public class JamCreature : JamGridActor
             renderer.color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
             yield return null;
         }
-
+        
         JamCoordinator.Instance.GameOver = true;
         Destroy(gameObject);
     }
