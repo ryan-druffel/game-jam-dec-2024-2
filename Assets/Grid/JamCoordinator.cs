@@ -13,7 +13,7 @@ public class JamCoordinator : MonoBehaviour
     [Range(0, 10)] private float timeScale = 1; // speed up/slowdown time
     public float TimeScale { get => timeScale; }
     [SerializeField]
-    private float stepTime = 3;
+    public float stepTime = 3;
     [SerializeField]
     private float stepPause = 0.25f; // the delay between full steps
     [SerializeField]
