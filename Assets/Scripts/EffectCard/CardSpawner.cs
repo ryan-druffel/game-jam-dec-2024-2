@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CardSpawner : MonoBehaviour
@@ -51,4 +52,26 @@ public class CardSpawner : MonoBehaviour
         effectCardUI.AddCard(newObject.GetComponent<EffectCard>());
         return newObject;
     }
+
+    // Cards per State
+    [SerializeField]
+    List<GameObject> redAndBlueCards;
+    [SerializeField]
+    List<float> redAndBlueChances;
+    [SerializeField]
+    List<GameObject> addFoodCards;
+    [SerializeField]
+    List<float> addFoodChances;
+    [SerializeField]
+    List<GameObject> blueYellowCards;
+    [SerializeField]
+    List<float> blueYellowChances;
+    [SerializeField]
+    List<GameObject> addConveyorCards;
+    [SerializeField]
+    List<float> addConveyorChances;
+    [SerializeField]
+    List<GameObject> greenPurpleCards;
+    [SerializeField]
+    List<float> greenPurpleChances;
 }

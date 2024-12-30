@@ -265,6 +265,16 @@ MonoBehaviour:
   stepsPerSpawn: 8
   lastSpawnStep: 0
   testPrefab: {fileID: 338046285195720952, guid: ef982f614173c43499fd53800eded6c6, type: 3}
+  redAndBlueCards: []
+  redAndBlueChances: []
+  addFoodCards: []
+  addFoodChances: []
+  blueYellowCards: []
+  blueYellowChances: []
+  addConveyorCards: []
+  addConveyorChances: []
+  greenPurpleCards: []
+  greenPurpleChances: []
 --- !u!1 &288553218
 GameObject:
   m_ObjectHideFlags: 0
