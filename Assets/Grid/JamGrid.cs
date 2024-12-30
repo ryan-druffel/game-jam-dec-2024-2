@@ -235,6 +235,8 @@ public abstract class JamGridActor : MonoBehaviour
     [SerializeField]
     protected JamGrid initGrid;
 
+    protected float _scaledTime;
+
     public abstract JamGridEntity GetGridEntity();
     public abstract int GetPriority();
     public abstract bool IsOfType(string type);
@@ -246,6 +248,12 @@ public abstract class JamGridActor : MonoBehaviour
     {
         SnapToGrid();
     }
+
+    protected void Update()
+    {
+        _scaledTime = Time.deltaTime * JamCoordinator.Instance.TimeScale;
+    }
+
 
     // snap to the current position
     protected void SnapToGrid()
