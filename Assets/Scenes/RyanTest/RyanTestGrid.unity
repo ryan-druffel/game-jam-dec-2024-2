@@ -487,6 +487,10 @@ PrefabInstance:
       propertyPath: stepPause
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3648242474908295645, guid: 778f22ef76b40804dbd60a9bccd63121, type: 3}
+      propertyPath: timeScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7319505504818142051, guid: 778f22ef76b40804dbd60a9bccd63121, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0259167
