@@ -64,7 +64,6 @@ public class JamWall : JamGridActor
             yield return null;
         }
 
-        Debug.Log("I'm dead bruh");
         Destroy(gameObject);
     }
 }
