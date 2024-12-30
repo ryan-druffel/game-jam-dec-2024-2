@@ -35,12 +35,12 @@ public class JamCreature : JamGridActor
         walkAnim = WalkAnimation(destination);
         StartCoroutine(walkAnim);
     }
-    protected void StopWalkAnimation () {
+    protected void StopWalkAnimation (bool snap = true) {
         if (walkAnim != null) StopCoroutine(walkAnim);
-        SnapToGrid();
+        if (snap) SnapToGrid();
     }
 
-    IEnumerator WalkAnimation(Vector2 destination)
+    IEnumerator WalkAnimation(Vector2 destination, float speedMult = 1)
     {
         // get target position
         var dest = new Vector3(destination.x, destination.y, transform.position.z);
@@ -48,12 +48,18 @@ public class JamCreature : JamGridActor
         // move towards the destination until it is reached
         while (transform.position != dest)
         {
-            if (JamCoordinator.Instance.TimeScale > 0) transform.position = Vector3.MoveTowards(transform.position, dest, Time.deltaTime / JamCoordinator.Instance.StepDuration);
+            if (JamCoordinator.Instance.TimeScale > 0) transform.position = Vector3.MoveTowards(transform.position, dest, Time.deltaTime * speedMult / JamCoordinator.Instance.StepDuration);
             yield return null;
         }
 
         // snap to target position to be sure
         SnapToGrid();
+    }
+
+    public void RecomputeMove(float speedMult = 1) {
+        StopWalkAnimation(false);
+        walkAnim = WalkAnimation(gridData.GetXY(), speedMult);
+        StartCoroutine(walkAnim);
     }
 
     protected void ObliteratedByOtherCreature() {

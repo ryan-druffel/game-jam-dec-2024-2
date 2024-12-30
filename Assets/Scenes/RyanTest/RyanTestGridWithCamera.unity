@@ -642,6 +642,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 815231591}
     - target: {fileID: 6086687312699654981, guid: 35dfcf5744cb96c4c9fb76e20330a033, type: 3}
+      propertyPath: pushDir.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086687312699654981, guid: 35dfcf5744cb96c4c9fb76e20330a033, type: 3}
+      propertyPath: pushDir.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086687312699654981, guid: 35dfcf5744cb96c4c9fb76e20330a033, type: 3}
       propertyPath: initColumn
       value: 7
       objectReference: {fileID: 0}

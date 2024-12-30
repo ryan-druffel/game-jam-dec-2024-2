@@ -19,6 +19,13 @@ public class JamFood : JamGridActor
             gridData.ConnectToGrid(initGrid);
         }
     }
+    
+    protected void Start()
+    {
+        Vector3 zAligned = transform.position;
+        zAligned.z = priority;
+        transform.position = zAligned;
+    }
 
     // JamGridActor Implementation
     public override bool IsOfType(string type)

@@ -9,6 +9,8 @@ public class Conveyor : JamGridActor
     [SerializeField]
     public int usesRemaining = 5;
     [SerializeField]
+    SpriteRenderer conveyorSprite;
+    [SerializeField]
     CountdownSprite countdownSprite;
     [SerializeField]
     Vector2Int pushDir = new Vector2Int(1, 0);
@@ -19,6 +21,13 @@ public class Conveyor : JamGridActor
         if (autoconnect) {
             gridData.ConnectToGrid(initGrid);
         }
+    }
+    
+    protected void Start()
+    {
+        Vector3 zAligned = transform.position;
+        zAligned.z = priority;
+        transform.position = zAligned;
     }
 
     // JamGridActor Implementation
@@ -44,6 +53,10 @@ public class Conveyor : JamGridActor
             if (entity != gridData) {
                 entity.MoveRelative(pushDir.x, pushDir.y);
                 usesRemaining--;
+                if (entity.GetActor().IsOfType(ActorTypes.Creature)) {
+                    JamCreature creature = entity.GetActor().GetComponent<JamCreature>();
+                    creature.RecomputeMove(2);
+                }
             }
         }
     }
@@ -57,6 +70,8 @@ public class Conveyor : JamGridActor
     {
         // snap to target position to be sure
         SnapToGrid();
+
+        RotateSprite();
 
         // Update countdown timer
         if (countdownSprite != null) {
@@ -74,5 +89,19 @@ public class Conveyor : JamGridActor
     {
         Vector2 gridPos = gridData.GetXY();
         transform.position = new Vector3(gridPos.x, gridPos.y, transform.position.z);
+    }
+
+    // snap to the current position
+    protected void RotateSprite()
+    {
+        if (pushDir == new Vector2Int(1, 0)) {
+            conveyorSprite.transform.eulerAngles = new Vector3(0,0,90);
+        } else if (pushDir == new Vector2Int(0, 1)) {
+            conveyorSprite.transform.eulerAngles = new Vector3(0,0,0);
+        } else if (pushDir == new Vector2Int(-1, 0)) {
+            conveyorSprite.transform.eulerAngles = new Vector3(0,0,270);
+        } else if (pushDir == new Vector2Int(0, -1)) {
+            conveyorSprite.transform.eulerAngles = new Vector3(0,0,180);
+        }
     }
 }
