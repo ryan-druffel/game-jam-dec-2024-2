@@ -6,12 +6,11 @@ using Random = UnityEngine.Random;
 public class JamPinkCreature : JamCreature
 {
     static string[] typeTags = { ActorTags.Creature, ActorTags.Pink };
-    private Vector2Int _dir; // the current direction
 
     protected new void Start()
     {
-        // pick a random vertical direction
-        _dir = (Random.value > 0.5f) ? GridDirections.Southeast : GridDirections.Northwest;
+        // pick a random diagonal direction
+        _direction = GridDirections.Diagonal[(int)(Random.value * 4)];
         base.Start();
     }
 
@@ -29,13 +28,15 @@ public class JamPinkCreature : JamCreature
         return priority;
     }
 
-    public override void PreEvaluate() {
-        // falling diagonal movement
-        SingleAxisMovement(ref _dir);
+    public override void PreEvaluate()
+    {
+        // show intent
+        ShowInidcator();
     }
 
     public override void Step()
     {
+        CalculateSimpleMovement();
         base.Step();
     }
 

@@ -5,6 +5,13 @@ using UnityEngine;
 public class JamBlueCreature : JamCreature
 {
     static string[] typeTags = { ActorTags.Creature, ActorTags.Blue };
+
+    protected new void Start()
+    {
+        base.Start();
+        Indicator.gameObject.SetActive(false);
+    }
+
     public override bool IsOfType(string type)
     {
         return typeTags.Contains(type);
@@ -21,11 +28,6 @@ public class JamBlueCreature : JamCreature
 
     public override void PreEvaluate() {
         // do nothing...
-    }
-
-    public override void Step()
-    {
-        base.Step();
     }
 
     public override void PostEvaluate() 

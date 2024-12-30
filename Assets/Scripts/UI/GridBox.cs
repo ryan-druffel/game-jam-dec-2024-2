@@ -47,9 +47,7 @@ public class GridBox : MonoBehaviour
 
     public JamCoordinator GetCoordinator()
     {
-        
         if (coordinator == null) coordinator = GetTypeFromGridSceneRoot<JamCoordinator>();
-        // Debug.Assert(coordinator != null, "Could not find coordinator"); 
         return coordinator;
     }
 
