@@ -4,7 +4,9 @@ using System.IO;
 using System.Linq;
 using Mono.Cecil;
 using Unity.Collections;
+using UnityEditor;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class JamGrid : MonoBehaviour
 {
@@ -71,9 +73,11 @@ public class JamGrid : MonoBehaviour
             }
         );
     }
-
     public List<JamGridEntity> GetCellEntities(int col, int row)
     {
+        col = (col % Width + Width) % Width;
+        row = (row % Height + Height) % Height;
+
         if (col < _width && col >= 0 && row < _height && row >= 0) {
             List<JamGridEntity> list = new List<JamGridEntity>();
             foreach (JamGridEntity entity in Entities.Values.ToList()) {
