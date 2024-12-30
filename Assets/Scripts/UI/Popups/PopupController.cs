@@ -85,7 +85,7 @@ public class PopupController : MonoBehaviour
         // Add popups here
         popupsScore.Add(new Popup(Resources.Load<GameObject>("Prefabs/UI/IntroPopup"), 0));
         popupsScore.Add(new Popup(Resources.Load<GameObject>("Prefabs/UI/WallPopup"), 20));
-        popupsScore.Add(new Popup(Resources.Load<GameObject>("Prefabs/UI/VictoryPopup"), 1000));
+        popupsScore.Add(new Popup(Resources.Load<GameObject>("Prefabs/UI/VictoryPopup"), 2000));
         
         popupsStage.Add(new Popup(Resources.Load<GameObject>("Prefabs/UI/StagePopupRedCyan"), (int) JamCoordinator.GameStage.RedCyan));
         popupsStage.Add(new Popup(Resources.Load<GameObject>("Prefabs/UI/StagePopupFood"), (int) JamCoordinator.GameStage.AddFood));

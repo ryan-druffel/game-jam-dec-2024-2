@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8717792cd0d10b4ea3934053b207cec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeGame: 1
 --- !u!1 &6763142265480486659
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 4263055468535417636, guid: 8cc1905079724e742bb8dd4ad09f2f4c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
