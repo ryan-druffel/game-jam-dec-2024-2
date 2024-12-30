@@ -11,7 +11,6 @@ public class JamCreature : JamGridActor
     [SerializeField]
     protected bool autoconnect = false;
     public int priority = 0;
-    protected float _scaledTime;
     
     protected void Awake()
     {
@@ -19,11 +18,6 @@ public class JamCreature : JamGridActor
         if (autoconnect) {
             gridData.ConnectToGrid(initGrid);
         }
-    }
-
-    protected void Update()
-    {
-        _scaledTime = Time.deltaTime * JamCoordinator.Instance.TimeScale;
     }
 
     public override bool IsOfType(string type)
@@ -66,21 +60,21 @@ public class JamCreature : JamGridActor
     }
 
     // dies after a time delay
-    IEnumerator FadeToDeath()
+    protected IEnumerator FadeToDeath()
     {
         // get the sprite renderer
         var renderer = transform.GetComponentInChildren<SpriteRenderer>();
-        Color currentColor = renderer.color;
-        float fadeAmount = renderer.color.a / JamCoordinator.Instance.StepDuration;
+        float alpha = renderer.color.a;
+        Color baseColor = renderer.color;
 
-        while (renderer.color.a > 0)
+        while (alpha > 0)
         {
-            currentColor.a -= _scaledTime * fadeAmount;
-            renderer.color = currentColor;
-
+            alpha -= _scaledTime;
+            renderer.color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
             yield return null;
         }
 
+        Debug.Log("I'm dead bruh");
         Destroy(gameObject);
     }
 
@@ -146,6 +140,7 @@ public class JamCreature : JamGridActor
 
     public override void Step() {
         StepIntent?.Invoke();
+        JamCoordinator.Instance.AddScore(1);
     }
 
     public override void PostEvaluate() {

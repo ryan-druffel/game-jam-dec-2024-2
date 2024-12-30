@@ -20,7 +20,7 @@ public class JamBlueCreature : JamCreature
     }
 
     public override void PreEvaluate() {
-        base.PreEvaluate();
+        // do nothing...
     }
 
     public override void Step()
@@ -40,6 +40,4 @@ public class JamBlueCreature : JamCreature
             }
         }
     }
-
-
 }

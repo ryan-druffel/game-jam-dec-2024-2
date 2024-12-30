@@ -71,6 +71,10 @@ public class JamCoordinator : MonoBehaviour
         StartCoroutine(StepLoop());
     }
     
+    public void AddScore(int score)
+    {
+        this.score += score;
+    }
 
     [SerializeField]
     float stepTimer = 0;
