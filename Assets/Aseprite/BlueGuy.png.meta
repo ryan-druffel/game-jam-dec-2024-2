@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 96988e8542b3d254194c9570ee034819
+guid: ec1ffbed5a509174da5bf5bcfe9588ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8940183205236529035
-    second: RedGuy_0
+      213: -5499544224780702033
+    second: BlueGuy_0
   - first:
-      213: 4906277947133470736
-    second: RedGuy_1
+      213: -231362862850869598
+    second: BlueGuy_1
   - first:
-      213: -7775452718966332731
-    second: RedGuy_2
+      213: 1079620531267104112
+    second: BlueGuy_2
   - first:
-      213: -1254012037611727455
-    second: RedGuy_3
+      213: -7812357758762612561
+    second: BlueGuy_3
+  - first:
+      213: 3587233461515737976
+    second: BlueGuy_4
+  - first:
+      213: -5721162282634842783
+    second: BlueGuy_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,78 +128,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RedGuy_0
+      name: BlueGuy_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 4
-        width: 20
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 578a6f0fdb61ee380800000000000000
-      internalID: -8940183205236529035
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RedGuy_1
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 3
-        width: 26
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 01829306cc9961440800000000000000
-      internalID: 4906277947133470736
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RedGuy_2
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 4
-        width: 20
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5c2aa2eb2fa081490800000000000000
-      internalID: -7775452718966332731
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RedGuy_3
-      rect:
-        serializedVersion: 2
-        x: 103
+        x: 0
         y: 2
-        width: 19
+        width: 32
         height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -203,8 +143,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a5d61222bad89ee0800000000000000
-      internalID: -1254012037611727455
+      spriteID: fae25675aa1bda3b0800000000000000
+      internalID: -5499544224780702033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueGuy_1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a67e89b3b80accf0800000000000000
+      internalID: -231362862850869598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueGuy_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07de46237259bfe00800000000000000
+      internalID: 1079620531267104112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueGuy_3
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 1
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa800b2920ee49390800000000000000
+      internalID: -7812357758762612561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueGuy_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87b5a08c3d968c130800000000000000
+      internalID: 3587233461515737976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueGuy_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 2
+        width: 32
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16def2947395a90b0800000000000000
+      internalID: -5721162282634842783
       vertices: []
       indices: 
       edges: []
@@ -222,11 +272,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      RedGuy_0: -8940183205236529035
-      RedGuy_1: 4906277947133470736
-      RedGuy_2: -7775452718966332731
-      RedGuy_3: -1254012037611727455
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

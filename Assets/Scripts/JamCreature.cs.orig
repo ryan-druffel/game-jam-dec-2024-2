@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
+using NUnit.Framework;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,6 +10,7 @@ public class JamCreature : JamGridActor
 {
     [SerializeField]
     protected bool autoconnect = false;
+    public Vector2Int move;
     public int priority = 0;
     protected float _scaledTime;
     
@@ -19,6 +20,11 @@ public class JamCreature : JamGridActor
         if (autoconnect) {
             gridData.ConnectToGrid(initGrid);
         }
+    }
+
+    protected void Start()
+    {
+        SnapToGrid();
     }
 
     protected void Update()
@@ -46,12 +52,15 @@ public class JamCreature : JamGridActor
     {
         // get target position
         var dest = new Vector3(destination.x, destination.y, transform.position.z);
-        var distance = Vector3.Distance(transform.position, dest);
 
         // move towards the destination until it is reached
         while (transform.position != dest)
         {
-            if (JamCoordinator.Instance.TimeScale > 0) transform.position = Vector3.MoveTowards(transform.position, dest, Time.deltaTime * speedMult / JamCoordinator.Instance.StepDuration * distance);
+<<<<<<< HEAD
+            if (JamCoordinator.Instance.TimeScale > 0) transform.position = Vector3.MoveTowards(transform.position, dest, _scaledTime / JamCoordinator.Instance.StepDuration);
+=======
+            if (JamCoordinator.Instance.TimeScale > 0) transform.position = Vector3.MoveTowards(transform.position, dest, Time.deltaTime * speedMult / JamCoordinator.Instance.StepDuration);
+>>>>>>> origin/main
             yield return null;
         }
 
@@ -59,12 +68,7 @@ public class JamCreature : JamGridActor
         SnapToGrid();
     }
 
-    public void RecomputeMove(float speedMult = 1) {
-        StopWalkAnimation(false);
-        walkAnim = WalkAnimation(gridData.GetXY(), speedMult);
-        StartCoroutine(walkAnim);
-    }
-
+<<<<<<< HEAD
     // dies after a time delay
     IEnumerator FadeToDeath()
     {
@@ -81,11 +85,29 @@ public class JamCreature : JamGridActor
             yield return null;
         }
 
+=======
+    public void RecomputeMove(float speedMult = 1) {
+        StopWalkAnimation(false);
+        walkAnim = WalkAnimation(gridData.GetXY(), speedMult);
+        StartCoroutine(walkAnim);
+    }
+
+    protected void ObliteratedByOtherCreature() {
+        JamCoordinator.Instance.GameOver = true;
+        // eliminate self
+>>>>>>> origin/main
         Destroy(gameObject);
     }
 
     protected void ObliteratedByOtherCreature() {
         StartCoroutine(FadeToDeath());
+    }
+
+    // snap to the current position
+    protected void SnapToGrid()
+    {
+        Vector2 gridPos = gridData.GetXY();
+        transform.position = new Vector3(gridPos.x, gridPos.y, transform.position.z);
     }
 
     // JamGridActor Implementation
@@ -97,12 +119,12 @@ public class JamCreature : JamGridActor
         return priority;
     }
 
-    // is the tile in the specified direction not solid?
+    // is the tile in the specified direction free?
     protected bool IsTileFree(Vector2Int direction)
     {
         // look at the tile we're about to enter, return true if there's nothing there
         var entities = gridData.Grid.GetCellEntities(gridData.Column + direction.x, gridData.Row + direction.y);
-        return !entities.Any(i => i.GetActor().IsOfType(ActorTags.Solid));
+        return entities.Count == 0;
     }
 
     // does the specified tile have an entity with a specific tag?
@@ -112,7 +134,8 @@ public class JamCreature : JamGridActor
         return entities.Any(i => i.GetActor().IsOfType(tag));
     }
 
-    protected Vector2Int ChooseFreeTileRandomly()
+    // attempt to move onto a free orthagonal tile at random
+    protected Vector2Int ChooseTileRandomly()
     {
         // first, get free tiles available
         List<Vector2Int> options = new List<Vector2Int>();
@@ -128,45 +151,36 @@ public class JamCreature : JamGridActor
         return options[(int)(options.Count * Random.value)];
     }
 
-    protected Action StepIntent;
+    protected delegate void StepIntent();
     public override void PreEvaluate() {
         StopWalkAnimation();
 
         // pick a random direction to move
-        Vector2Int dir = ChooseFreeTileRandomly();
+        Vector2Int dir = ChooseTileRandomly();
         if (dir != Vector2Int.zero)
         {
             // schedule movement
-            StepIntent = () => {
-                StartWalkAnimation(gridData.GetRelativeXY(dir.x, dir.y));
-                gridData.MoveRelative(dir.x, dir.y);
-            };
+            
         }
+
+        /*
+        if (DoesTileContain(dir, ActorTags.Wall))
+        {
+            Debug.Log("There's a wall here!");
+            // try to turn around
+            move *= -1;
+        }
+        */
     }
 
     public override void Step() {
-        StepIntent?.Invoke();
+        StartWalkAnimation(gridData.GetRelativeXY(move.x, move.y));
+        gridData.MoveRelative(move.x, move.y);
+        // Debug.Log(transform.name + " is at " + gridData.GetColumn() + ", " + gridData.GetRow());
     }
 
     public override void PostEvaluate() {
 
-    }
-
-    // does nothing but move on a single axis (orthogonal or diagonal)
-    protected void SingleAxisMovement(ref Vector2Int direction)
-    {
-        // move vertically, turn around if hitting a wall
-        if (!IsTileFree(direction)) direction *= -1; // turn around if next space isn't free
-
-        // if the other way isn't free either, do nothing 
-        if (!IsTileFree(direction)) { StepIntent = () => { }; return; }
-
-        // if it's free, schedule movement
-        Vector2Int dir = direction;
-        StepIntent = () => {
-            StartWalkAnimation(gridData.GetRelativeXY(dir.x, dir.y));
-            gridData.MoveRelative(dir.x, dir.y);
-        };
     }
 }
 
@@ -177,11 +191,4 @@ public class GridDirections
     public static readonly Vector2Int South = new Vector2Int(0, 1);
     public static readonly Vector2Int West = new Vector2Int(-1, 0);
     public static readonly Vector2Int[] Orthogonal = new Vector2Int[] { North, East, South, West };
-    public static readonly Vector2Int Northeast = North + East;
-    public static readonly Vector2Int Southeast = South + East;
-    public static readonly Vector2Int Southwest = South + West;
-    public static readonly Vector2Int Northwest = North + West;
-    public static readonly Vector2Int[] Diagonal = new Vector2Int[] { Northeast, Southeast, Southwest, Northwest };
-
-    public static readonly Vector2Int[] All = new Vector2Int[] { North, Northeast, East, Southeast, South, Southwest, West,  Northwest };
 }

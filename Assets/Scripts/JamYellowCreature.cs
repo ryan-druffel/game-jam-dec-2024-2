@@ -1,20 +1,10 @@
 using System;
 using System.Linq;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class JamCyanCreature : JamCreature
+public class JamYellowCreature : JamCreature
 {
-    static string[] typeTags = { ActorTags.Creature, ActorTags.Cyan };
-    private Vector2Int _dir; // the current direction
-
-    protected new void Start()
-    {
-        // pick a random vertical direction
-        _dir = (Random.value > 0.5f) ? GridDirections.North : GridDirections.South;
-        base.Start();
-    }
-
+    static string[] typeTags = { ActorTags.Creature, ActorTags.Yellow };
     public override bool IsOfType(string type)
     {
         return typeTags.Contains(type);
@@ -31,8 +21,7 @@ public class JamCyanCreature : JamCreature
 
     public override void PreEvaluate()
     {
-        // vertical movement
-        SingleAxisMovement(ref _dir);
+        base.PreEvaluate();
     }
 
     public override void Step()
@@ -45,9 +34,9 @@ public class JamCyanCreature : JamCreature
         if (gridData.Grid != null) {
             // if i am sharing a cell with a cyan guy, i'm out peace ya'll
             var entities = gridData.Grid.GetCellEntities(gridData.Column, gridData.Row);
-            if (entities.Any(i => i.GetActor().IsOfType(ActorTags.Red) && i.GetActor().IsOfType(ActorTags.Creature)))
+            if (entities.Any(i => i.GetActor().IsOfType(ActorTags.Blue) && i.GetActor().IsOfType(ActorTags.Creature)))
             {
-                Debug.Log("grrr red bad grrr");
+                Debug.Log("grrr blue bad grrr");
                 ObliteratedByOtherCreature();
             }
         }

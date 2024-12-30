@@ -15,10 +15,6 @@ public class JamWall : JamGridActor
         }
     }
 
-    void Update() {
-        transform.position = gridData.GetXY();
-    }
-
     public override JamGridEntity GetGridEntity()
     {
         return gridData;
@@ -31,7 +27,7 @@ public class JamWall : JamGridActor
 
     public override bool IsOfType(string type)
     {
-        return type.ToLower().Equals(ActorTypes.Wall.ToLower());
+        return type.ToLower().Equals(ActorTags.Solid.ToLower());
     }
 
     public override void PreEvaluate()
@@ -46,6 +42,6 @@ public class JamWall : JamGridActor
 
     public override void PostEvaluate()
     {
-        transform.position = gridData.Grid.GetCellXY(initColumn, initRow);
+        transform.position = gridData.GetXY();
     }
 }

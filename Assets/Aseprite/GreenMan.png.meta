@@ -1,19 +1,34 @@
 fileFormatVersion: 2
-guid: 96988e8542b3d254194c9570ee034819
+guid: a5b8d7283c762cf47b55956e97a7704d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8940183205236529035
-    second: RedGuy_0
+      213: 3390435897099418679
+    second: GreenMan_0
   - first:
-      213: 4906277947133470736
-    second: RedGuy_1
+      213: 285892839947192163
+    second: GreenMan_1
   - first:
-      213: -7775452718966332731
-    second: RedGuy_2
+      213: 5837052347061615116
+    second: GreenMan_2
   - first:
-      213: -1254012037611727455
-    second: RedGuy_3
+      213: -2527516452863844149
+    second: GreenMan_3
+  - first:
+      213: 5854404237098734224
+    second: GreenMan_4
+  - first:
+      213: -7639240655697171362
+    second: GreenMan_5
+  - first:
+      213: -8121587285949806919
+    second: GreenMan_6
+  - first:
+      213: 1845147176121281378
+    second: GreenMan_7
+  - first:
+      213: 2914433480115941800
+    second: GreenMan_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,78 +137,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RedGuy_0
+      name: GreenMan_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 4
-        width: 20
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 578a6f0fdb61ee380800000000000000
-      internalID: -8940183205236529035
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RedGuy_1
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 3
-        width: 26
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 01829306cc9961440800000000000000
-      internalID: 4906277947133470736
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RedGuy_2
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 4
-        width: 20
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5c2aa2eb2fa081490800000000000000
-      internalID: -7775452718966332731
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RedGuy_3
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 2
-        width: 19
+        x: 0
+        y: 1
+        width: 64
         height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -203,8 +152,184 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a5d61222bad89ee0800000000000000
-      internalID: -1254012037611727455
+      spriteID: 73cf7503c7f3d0f20800000000000000
+      internalID: 3390435897099418679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMan_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 1
+        width: 31
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36741e0f502b7f300800000000000000
+      internalID: 285892839947192163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMan_2
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 1
+        width: 33
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0ab7f10f20610150800000000000000
+      internalID: 5837052347061615116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMan_3
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 1
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc0681f6d257cecd0800000000000000
+      internalID: -2527516452863844149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMan_4
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 1
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 092dfcbb2a50f3150800000000000000
+      internalID: 5854404237098734224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMan_5
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5ca27b1917fbf590800000000000000
+      internalID: -7639240655697171362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMan_6
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 0
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b602a8b4635a4f80800000000000000
+      internalID: -8121587285949806919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMan_7
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 0
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b2607a4974b9910800000000000000
+      internalID: 1845147176121281378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenMan_8
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 0
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a1f0df0fc5227820800000000000000
+      internalID: 2914433480115941800
       vertices: []
       indices: 
       edges: []
@@ -222,11 +347,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      RedGuy_0: -8940183205236529035
-      RedGuy_1: 4906277947133470736
-      RedGuy_2: -7775452718966332731
-      RedGuy_3: -1254012037611727455
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

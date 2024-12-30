@@ -33,7 +33,7 @@ public class Conveyor : JamGridActor
     // JamGridActor Implementation
     public override bool IsOfType(string type)
     {
-        return type.Equals(ActorTypes.Food);
+        return type.Equals(ActorTags.Food);
     }
 
     public override JamGridEntity GetGridEntity() {
@@ -53,7 +53,7 @@ public class Conveyor : JamGridActor
             if (entity != gridData) {
                 entity.MoveRelative(pushDir.x, pushDir.y);
                 usesRemaining--;
-                if (entity.GetActor().IsOfType(ActorTypes.Creature)) {
+                if (entity.GetActor().IsOfType(ActorTags.Creature)) {
                     JamCreature creature = entity.GetActor().GetComponent<JamCreature>();
                     creature.RecomputeMove(2);
                 }

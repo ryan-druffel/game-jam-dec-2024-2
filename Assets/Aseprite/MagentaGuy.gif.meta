@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9dcce2429bcc2bd4b9e1eac123e44e58
+guid: 4afb4cd5f257ebc47b5cd2abbcebf0ba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2509104081449943367
-    second: RedGuyIdle_0
+      213: -7426515408206656492
+    second: MagentaGuy_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RedGuyIdle_0
+      name: MagentaGuy_0
       rect:
         serializedVersion: 2
-        x: 55
-        y: 39
-        width: 146
-        height: 186
+        x: 23
+        y: 15
+        width: 202
+        height: 210
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9be71b8b12fdd2dd0800000000000000
-      internalID: -2509104081449943367
+      spriteID: 41c80e66597bfe890800000000000000
+      internalID: -7426515408206656492
       vertices: []
       indices: 
       edges: []

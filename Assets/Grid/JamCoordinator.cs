@@ -73,9 +73,9 @@ public class JamCoordinator : MonoBehaviour
 
     [SerializeField]
     float stepTimer = 0;
-    void FixedUpdate()
+    void Update()
     {
-        stepTimer -= Time.fixedDeltaTime * timeScale;
+        stepTimer -= Time.deltaTime * timeScale;
     }
 
     // Update is called once per frame
@@ -87,7 +87,6 @@ public class JamCoordinator : MonoBehaviour
 
     IEnumerator StepLoop()
     {
-
         // initial pause
         while (stepTimer > stepPause + stepTime){
             yield return null;
@@ -100,7 +99,7 @@ public class JamCoordinator : MonoBehaviour
             // Pre Evaluate
             foreach (JamGridEntity entity in entities)
             {
-                if (entity.GetActor() is not null)
+                if (entity.GetActor() != null)
                 {
                     entity.GetActor().PreEvaluate();
                 }
@@ -109,7 +108,7 @@ public class JamCoordinator : MonoBehaviour
             stepCount++;
             foreach (JamGridEntity entity in entities)
             {
-                if (entity.GetActor() is not null)
+                if (entity.GetActor() != null)
                 {
                     entity.GetActor().Step();
                 }
@@ -117,7 +116,7 @@ public class JamCoordinator : MonoBehaviour
             // Post Evaluate
             foreach (JamGridEntity entity in entities)
             {
-                if (entity.GetActor() is not null)
+                if (entity.GetActor() != null)
                 {
                     entity.GetActor().PostEvaluate();
                 }
