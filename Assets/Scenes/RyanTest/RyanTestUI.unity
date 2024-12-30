@@ -290,12 +290,16 @@ MonoBehaviour:
   - {fileID: 8351503276768234016, guid: 230330e7bcc5c0d4ba0ec79d6bddd05e, type: 3}
   - {fileID: 4656148587344985211, guid: ef8ca0415b19f5549b6879b1cf9bb9d0, type: 3}
   - {fileID: 4934213570246445599, guid: 0de005d94e68cbb4e84edc6f815592e4, type: 3}
+  - {fileID: 1286453607835703611, guid: 66a0973172fced34b8893c8b7f8bb010, type: 3}
+  - {fileID: 5392467554363543620, guid: c984f9a612cef1346b0aac03228bfb83, type: 3}
   blueYellowChances:
   - 10
   - 2
   - 0.5
   - 0.5
   - 0.5
+  - 0.5
+  - 2
   - 0.5
   addConveyorCards:
   - {fileID: 338046285195720952, guid: ef982f614173c43499fd53800eded6c6, type: 3}
@@ -304,6 +308,8 @@ MonoBehaviour:
   - {fileID: 8351503276768234016, guid: 230330e7bcc5c0d4ba0ec79d6bddd05e, type: 3}
   - {fileID: 4656148587344985211, guid: ef8ca0415b19f5549b6879b1cf9bb9d0, type: 3}
   - {fileID: 4934213570246445599, guid: 0de005d94e68cbb4e84edc6f815592e4, type: 3}
+  - {fileID: 5392467554363543620, guid: c984f9a612cef1346b0aac03228bfb83, type: 3}
+  - {fileID: 1286453607835703611, guid: 66a0973172fced34b8893c8b7f8bb010, type: 3}
   addConveyorChances:
   - 10
   - 2
@@ -311,6 +317,8 @@ MonoBehaviour:
   - 0.5
   - 0.5
   - 0.5
+  - 0.5
+  - 2
   greenPurpleCards:
   - {fileID: 4656148587344985211, guid: ef8ca0415b19f5549b6879b1cf9bb9d0, type: 3}
   - {fileID: 8351503276768234016, guid: 230330e7bcc5c0d4ba0ec79d6bddd05e, type: 3}
@@ -320,6 +328,8 @@ MonoBehaviour:
   - {fileID: 4934213570246445599, guid: 0de005d94e68cbb4e84edc6f815592e4, type: 3}
   - {fileID: 7215366267866394191, guid: b4344fc00da165141b6801f237de596d, type: 3}
   - {fileID: 338046285195720952, guid: ef982f614173c43499fd53800eded6c6, type: 3}
+  - {fileID: 5392467554363543620, guid: c984f9a612cef1346b0aac03228bfb83, type: 3}
+  - {fileID: 1286453607835703611, guid: 66a0973172fced34b8893c8b7f8bb010, type: 3}
   greenPurpleChances:
   - 0.5
   - 0.5
@@ -329,6 +339,8 @@ MonoBehaviour:
   - 0.5
   - 2
   - 10
+  - 1
+  - 2
 --- !u!1 &288553218
 GameObject:
   m_ObjectHideFlags: 0

@@ -278,6 +278,7 @@ public class ActorTags
     public static string Creature { get { return "Creature"; } }
     public static string Solid { get { return "Solid"; } }
     public static string Food { get { return "Food"; } }
+    public static string Floor { get { return "Floor"; } }
     public static string Cyan { get { return "Cyan"; } }
     public static string Red { get { return "Red"; } }
     public static string Yellow { get { return "Yellow"; } }
