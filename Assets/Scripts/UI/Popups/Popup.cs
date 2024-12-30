@@ -1,4 +1,3 @@
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +10,7 @@ public class Popup : MonoBehaviour
         Destroy(gameObject);
     }
     public static void RestartGame() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
     void Update() {
         if (freezeGame) {

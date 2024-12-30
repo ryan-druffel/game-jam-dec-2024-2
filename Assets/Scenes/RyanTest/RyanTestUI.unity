@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d21104baa7f744ab7935c9d7952a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSceneAsset: {fileID: 102900000, guid: 5cf81e8d8c31d4e40b9db311b1a00f07, type: 3}
+  gridSceneName: RyanTestGrid
   display: {fileID: 695772971}
 --- !u!1 &751448914
 GameObject:

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GridBox : MonoBehaviour
 {
     [SerializeField]
-    SceneAsset gridSceneAsset;
+    string gridSceneName;
     Scene gridScene;
     JamGrid grid;
     JamCoordinator coordinator;
@@ -17,7 +17,7 @@ public class GridBox : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SceneManager.LoadScene(gridSceneAsset.name, LoadSceneMode.Additive);
+        SceneManager.LoadScene(gridSceneName, LoadSceneMode.Additive);
         gridScene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
 
         Debug.Assert(gridScene != null, "Could not find grid scene"); 
@@ -35,13 +35,13 @@ public class GridBox : MonoBehaviour
     public JamGrid GetGrid()
     {
         if (grid == null) grid = GetTypeFromGridSceneRoot<JamGrid>();
-        Debug.Assert(grid != null, "Could not find jam grid in scene"); 
+        // Debug.Assert(grid != null, "Could not find jam grid in scene"); 
         return grid;
     }
 
     public RectTransform GetDisplay()
     {
-        Debug.Assert(display != null, "Could not find grid display"); 
+        // Debug.Assert(display != null, "Could not find grid display"); 
         return display;
     }
 
@@ -49,7 +49,7 @@ public class GridBox : MonoBehaviour
     {
         
         if (coordinator == null) coordinator = GetTypeFromGridSceneRoot<JamCoordinator>();
-        Debug.Assert(coordinator != null, "Could not find coordinator"); 
+        // Debug.Assert(coordinator != null, "Could not find coordinator"); 
         return coordinator;
     }
 

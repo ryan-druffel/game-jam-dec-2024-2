@@ -178,7 +178,7 @@ public class EffectCardUI : MonoBehaviour
         Vector2 localPointFromCenter = localPoint * new Vector2(1.0f, -1.0f) / gridBox.GetDisplay().rect.size;
 
         // Compute CRT Distortion
-        Vector2 localPointFromCenterAbs = localPointFromCenter.Abs();
+        Vector2 localPointFromCenterAbs = new Vector2(Mathf.Abs(localPointFromCenter.x), Mathf.Abs(localPointFromCenter.y));
         Vector2 distortion = localPointFromCenter * Mathf.Pow(Vector2.Dot(localPointFromCenterAbs, localPointFromCenterAbs), 2);
 
         // Compute grid position
