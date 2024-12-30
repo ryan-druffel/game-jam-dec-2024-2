@@ -8,6 +8,8 @@ public class JamWall : JamGridActor
     private bool autoconnect = false;
     [SerializeField]
     private int lifetime = 15;
+    [SerializeField]
+    CountdownSprite countdownSprite;
 
     void Awake()
     {
@@ -16,6 +18,11 @@ public class JamWall : JamGridActor
         {
             gridData.Move(initColumn, initRow);
             gridData.ConnectToGrid(initGrid);
+        }
+
+        if (countdownSprite != null)
+        {
+            countdownSprite.count = lifetime;
         }
     }
 
@@ -31,7 +38,7 @@ public class JamWall : JamGridActor
 
     public override bool IsOfType(string type)
     {
-        return type.ToLower().Equals(ActorTags.Solid.ToLower());
+        return type.Equals(ActorTags.Solid);
     }
 
     public override void PreEvaluate()
@@ -42,12 +49,17 @@ public class JamWall : JamGridActor
     public override void Step()
     {
         lifetime--;
-        if (lifetime < 0) StartCoroutine(FadeToDeath());
+        if (lifetime < 1) StartCoroutine(FadeToDeath());
     }
 
     public override void PostEvaluate()
     {
         transform.position = gridData.GetXY();
+
+        if (countdownSprite != null)
+        {
+            countdownSprite.count = lifetime;
+        }
     }
 
     protected IEnumerator FadeToDeath()
