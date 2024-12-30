@@ -6,12 +6,13 @@ using Random = UnityEngine.Random;
 public class JamGreenCreature : JamCreature
 {
     static string[] typeTags = { ActorTags.Creature, ActorTags.Green };
-    private Vector2Int _dir; // the current direction
+    private Vector2Int _steering; // should I steer left or right?
 
     protected new void Start()
     {
-        // pick a random vertical direction
-        _dir = (Random.value > 0.5f) ? GridDirections.Southwest : GridDirections.Northeast;
+        // start random diamond pattern
+        _direction = GridDirections.Diagonal[(int)(Random.value * 4)];
+        _steering = (Random.value > 0.5f) ? new Vector2Int(-1, 1) : new Vector2Int(1, -1);
         base.Start();
     }
 
@@ -31,12 +32,7 @@ public class JamGreenCreature : JamCreature
 
     public override void PreEvaluate() {
         // rising diagonal movement
-        SingleAxisMovement(ref _dir);
-    }
-
-    public override void Step()
-    {
-        base.Step();
+        CalculateDiamondMovement();
     }
 
     public override void PostEvaluate() 
@@ -52,5 +48,27 @@ public class JamGreenCreature : JamCreature
         }
     }
 
+    // rotate direction by 90 degrees everytime i move
+    protected void CalculateDiamondMovement()
+    {
+        // move vertically, turn around if hitting a wall
+        if (!IsTileFree(_direction)) _direction *= -1; // turn around if next space isn't free
 
+        // if the other way isn't free either, do nothing 
+        if (!IsTileFree(_direction)) { StepIntent = () => { }; return; }
+
+        // show intent
+        ShowInidcator();
+
+        // if it's free, schedule movement
+        Vector2Int dir = _direction;
+        StepIntent = () => {
+            StartWalkAnimation(gridData.GetRelativeXY(dir.x, dir.y));
+            gridData.MoveRelative(dir.x, dir.y);
+        };
+
+        // change direction based on steering, then adjust steering
+        _direction *= _steering;
+        _steering = new Vector2Int(_steering.y, _steering.x);
+    }
 }

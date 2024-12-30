@@ -6,12 +6,11 @@ using Random = UnityEngine.Random;
 public class JamRedCreature : JamCreature
 {
     static string[] typeTags = { ActorTags.Creature, ActorTags.Red };
-    private Vector2Int _dir; // the current direction
 
     protected new void Start()
     {
-        // pick a random vertical direction
-        _dir = (Random.value > 0.5f) ? GridDirections.East : GridDirections.West;
+        // pick a random horizontal direction
+        _direction = (Random.value > 0.5f) ? GridDirections.East : GridDirections.West;
         base.Start();
     }
 
@@ -31,12 +30,7 @@ public class JamRedCreature : JamCreature
 
     public override void PreEvaluate() {
         // horizontal movement
-        SingleAxisMovement(ref _dir);
-    }
-
-    public override void Step()
-    {
-        base.Step();
+        CalculateSimpleMovement();
     }
 
     public override void PostEvaluate() 

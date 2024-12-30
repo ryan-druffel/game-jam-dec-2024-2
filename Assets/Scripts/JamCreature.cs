@@ -12,7 +12,11 @@ public class JamCreature : JamGridActor
     [SerializeField]
     protected bool autoconnect = false;
     public int priority = 0;
-    
+    protected Vector2Int _direction; // the current direction
+
+    [SerializeField]
+    protected Transform Indicator; // shows where it's going
+
     protected void Awake()
     {
         gridData = new JamGridEntity(initColumn, initRow, this);
@@ -133,7 +137,8 @@ public class JamCreature : JamGridActor
         if (dir != Vector2Int.zero)
         {
             // schedule movement
-            StepIntent = () => {
+            StepIntent = () =>
+            {
                 StartWalkAnimation(gridData.GetRelativeXY(dir.x, dir.y));
                 gridData.MoveRelative(dir.x, dir.y);
             };
@@ -143,35 +148,51 @@ public class JamCreature : JamGridActor
     public override void Step() {
         StepIntent?.Invoke();
         JamCoordinator.Instance.AddScore(1);
+        HideIndicator();
     }
 
     public override void PostEvaluate() {
-
+        
     }
 
     // does nothing but move on a single axis (orthogonal or diagonal)
-    protected void SingleAxisMovement(ref Vector2Int direction)
+    protected void CalculateSimpleMovement()
     {
         // move vertically, turn around if hitting a wall
-        if (!IsTileFree(direction)) direction *= -1; // turn around if next space isn't free
+        if (!IsTileFree(_direction)) _direction *= -1; // turn around if next space isn't free
 
         // if the other way isn't free either, do nothing 
-        if (!IsTileFree(direction)) { StepIntent = () => { }; return; }
+        if (!IsTileFree(_direction)) { StepIntent = () => { }; return; }
+
+        // show intent
+        ShowInidcator();
 
         // if it's free, schedule movement
-        Vector2Int dir = direction;
+        Vector2Int dir = _direction;
         StepIntent = () => {
             StartWalkAnimation(gridData.GetRelativeXY(dir.x, dir.y));
             gridData.MoveRelative(dir.x, dir.y);
         };
     }
+
+    protected void ShowInidcator()
+    {
+        // get current direction
+        Indicator.gameObject.SetActive(true);
+        Indicator.localEulerAngles = new Vector3(0, 0, 360 - Vector2.SignedAngle(Vector2.right, (Vector2)_direction));
+    }
+
+    protected void HideIndicator()
+    {
+        Indicator.gameObject.SetActive(false);
+    }
 }
 
 public class GridDirections
 {
-    public static readonly Vector2Int North = new Vector2Int(0, -1);
+    public static readonly Vector2Int North = new Vector2Int(0, 1);
     public static readonly Vector2Int East = new Vector2Int(1, 0);
-    public static readonly Vector2Int South = new Vector2Int(0, 1);
+    public static readonly Vector2Int South = new Vector2Int(0, -1);
     public static readonly Vector2Int West = new Vector2Int(-1, 0);
     public static readonly Vector2Int[] Orthogonal = new Vector2Int[] { North, East, South, West };
     public static readonly Vector2Int Northeast = North + East;

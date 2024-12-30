@@ -105,7 +105,7 @@ public class JamCoordinator : MonoBehaviour
         List<JamGridEntity> entities = _grid.GetAllEntities();
         while (entities.Count > 0)
         {
-            // Pre Evaluate
+            // precalculate intent
             foreach (JamGridEntity entity in entities)
             {
                 if (entity.GetActor() != null)
@@ -113,6 +113,19 @@ public class JamCoordinator : MonoBehaviour
                     entity.GetActor().PreEvaluate();
                 }
             }
+
+            Debug.Log("started delay " + Time.time + ", timer at " + stepTimer);
+
+            // pause delay
+            while (stepTimer > stepPause)
+            {
+                yield return null;
+            }
+
+            Debug.Log("stopped delay " + Time.time + ", timer at " + stepTimer);
+
+            NoActiveStep = false;
+
             // Step
             stepCount++;
             foreach (JamGridEntity entity in entities)
@@ -131,19 +144,18 @@ public class JamCoordinator : MonoBehaviour
                 }
             }
 
-            // wait for animations
-            while (stepTimer > stepPause){
+            // add a beat between steps
+            while (stepTimer > 0)
+            {
                 yield return null;
             }
 
-            // add a beat between steps
+            Debug.Log("step complete " + Time.time + ", timer at " + stepTimer);
+
             NoActiveStep = true;
-            while (stepTimer > 0){
-                yield return null;
-            }
-            NoActiveStep = false;
 
             stepTimer += stepTime + stepPause;
+            Debug.Log("timer set to " +  stepTimer);
 
             // grab the entities
             entities = _grid.GetAllEntities();
