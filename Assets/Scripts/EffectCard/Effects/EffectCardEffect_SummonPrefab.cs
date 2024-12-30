@@ -19,8 +19,12 @@ public class EffectCardEffect_SummonPrefab : EffectCardEffect
     public override void TriggerEffect(JamGrid grid, int x, int y)
     {
         Debug.Log("Effect Triggered");
-        Debug.Log(chosenPrefab);
         if (chosenPrefab >= 0 && chosenPrefab < prefabs.Count) SpawnObjectAtLocation(grid, x, y, prefabs[chosenPrefab]);
+    }
+    
+    public override bool CanUseAt(JamGrid grid, int x, int y)
+    {
+        return grid.GetCellEntities(x, y).Count == 0;
     }
 
     public override void Randomize()

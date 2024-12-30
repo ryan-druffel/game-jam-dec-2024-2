@@ -79,7 +79,7 @@ public class EffectCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         used = true;
     }
 
-    public bool CanBeUsedOn(JamGrid grid, int x, int y) { return true; }
+    public bool CanBeUsedOn(JamGrid grid, int x, int y) { return effect.CanUseAt(grid, x, y); }
 
     public void Select() {
         isTargeted = true;
@@ -112,6 +112,7 @@ public abstract class EffectCardEffect : MonoBehaviour
 {
     public abstract void Randomize();
     public abstract void TriggerEffect(JamGrid grid, int x, int y);
+    public abstract bool CanUseAt(JamGrid grid, int x, int y);
     public JamGridActor SpawnObjectAtLocation(JamGrid grid, int x, int y, GameObject prefab) {
         Debug.Log("Summoning");
         GameObject newObject = Instantiate(prefab);

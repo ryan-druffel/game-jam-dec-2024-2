@@ -23,6 +23,7 @@ public class EffectCardUI : MonoBehaviour
     [SerializeField]
 
     EffectCard targetCard;
+    public bool targetCellValid { get; private set; }
     [SerializeField]
 
     List<EffectCard> effectCards;
@@ -50,6 +51,8 @@ public class EffectCardUI : MonoBehaviour
         // Handle Inputs
         mouseClicked = !mouseDownLastUpdate && Input.GetMouseButton(0);
         mouseDownLastUpdate = Input.GetMouseButton(0);
+
+        targetCellValid = IsOverValidTarget();
 
         
         EffectCard hoveredCard;
@@ -81,7 +84,7 @@ public class EffectCardUI : MonoBehaviour
                 if (targetCard is null) state = SelectionState.Empty;
                 if (!Input.GetMouseButton(0) && IsOverGrid()) {
                     Vector2Int cell = GetGridCellUnderCursor();
-                    if (targetCard.CanBeUsedOn(gridBox.GetGrid(), cell.x, cell.y)) {
+                    if (targetCellValid) {
                         targetCard.ActOn(gridBox.GetGrid(), cell.x, cell.y);
                     }
                 }
@@ -123,7 +126,7 @@ public class EffectCardUI : MonoBehaviour
         // Animate Cell Selection Preview
         if (selectCellImage) {
             Color newColor;
-            if (state == SelectionState.Selecting) {
+            if (state == SelectionState.Selecting && targetCellValid) {
                 newColor = selectCellImage.color;
                 newColor.a = 1;
                 selectCellImage.color = newColor;
@@ -153,6 +156,11 @@ public class EffectCardUI : MonoBehaviour
             if (card != null && card.IsHovered()) return card;
         }
         return null;
+    }
+
+    bool IsOverValidTarget() {
+        Vector2Int cell = GetGridCellUnderCursor();
+        return IsOverGrid() && targetCard != null && gridBox != null && targetCard.CanBeUsedOn(gridBox.GetGrid(), cell.x, cell.y);
     }
 
     bool IsOverGrid() {

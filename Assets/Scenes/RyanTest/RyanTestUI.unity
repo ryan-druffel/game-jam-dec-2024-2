@@ -1814,8 +1814,9 @@ GameObject:
   - component: {fileID: 1450286282}
   - component: {fileID: 1450286284}
   - component: {fileID: 1450286283}
+  - component: {fileID: 1450286285}
   m_Layer: 5
-  m_Name: SelectImage
+  m_Name: CardSelected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1878,6 +1879,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450286281}
   m_CullTransparentMesh: 1
+--- !u!95 &1450286285
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450286281}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9119cd2e4393044b84357c920ea9787, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1488613734
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,8 +2402,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1996124517}
-  - {fileID: 1450286282}
   - {fileID: 1873022363}
+  - {fileID: 1450286282}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2502,6 +2525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1876446414}
   - component: {fileID: 1876446413}
+  - component: {fileID: 1876446415}
   m_Layer: 0
   m_Name: GridCellSelectIndicator
   m_TagString: Untagged
@@ -2553,8 +2577,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4036717355522960466, guid: 8bdd4b5ea85ba174ab54bb3c6c92e00f, type: 3}
-  m_Color: {r: 1, g: 0.8980392, b: 0, a: 1}
+  m_Sprite: {fileID: -9118508472702133369, guid: 4056211c56f7f8e4c91de8adca73d7ed, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2579,6 +2603,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1876446415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876446412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f9a259d16a8554285e4a304ee51c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coordinator: {fileID: 0}
+  followMode: 2
+  spriteRenderer: {fileID: 1876446413}
+  colorParameters:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &1933052634 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3496838651010494772, guid: 5d9e7f7246feadd4e81fcdaf338b4ef6, type: 3}

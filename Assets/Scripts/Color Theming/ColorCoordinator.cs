@@ -14,6 +14,6 @@ public class ColorCoordinator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (controlCamera is not null) controlCamera.backgroundColor = theme;
+        if (controlCamera != null) controlCamera.backgroundColor = theme;
     }
 }
