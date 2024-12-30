@@ -45,7 +45,7 @@ public class PopupController : MonoBehaviour
         popup.triggered = true;
 
         // don't show previously seen popups
-        if (_popupsSeen.Contains(popup.prefab.GetInstanceID())) yield break;
+        if (!popup.isImportant && _popupsSeen.Contains(popup.prefab.GetInstanceID())) yield break;
 
         // wait until the coordinator has fully completed a step and has entered the delay period
         yield return new WaitUntil(() => JamCoordinator.Instance.NoActiveStep);
@@ -64,8 +64,10 @@ public class PopupController : MonoBehaviour
         public GameObject prefab;
         public int threshold;
         public bool triggered;
-        public Popup(GameObject prefa, int score = 0) {
+        public bool isImportant;
+        public Popup(GameObject prefa, int score = 0, bool alwaysShow = false) {
             prefab = prefa;
+            isImportant = alwaysShow;
             threshold = score;
             triggered = false;
         }
@@ -78,7 +80,7 @@ public class PopupController : MonoBehaviour
         popupsScore = new List<Popup>();
         popupsStage = new List<Popup>();
 
-        gameOverPopup = new Popup(Resources.Load<GameObject>("Prefabs/UI/GameOverPopup"));
+        gameOverPopup = new Popup(Resources.Load<GameObject>("Prefabs/UI/GameOverPopup"), 0, true);
 
         // Add popups here
         popupsScore.Add(new Popup(Resources.Load<GameObject>("Prefabs/UI/IntroPopup"), 0));

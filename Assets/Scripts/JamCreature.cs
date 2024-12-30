@@ -67,16 +67,17 @@ public class JamCreature : JamGridActor
         var renderer = transform.GetComponentInChildren<SpriteRenderer>();
         float alpha = renderer.color.a;
         Color baseColor = renderer.color;
+        float stepLength = JamCoordinator.Instance.stepTime;
 
         while (alpha > 0)
         {
-            alpha -= _scaledTime;
+            alpha -= _scaledTime / stepLength;
             renderer.color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
             yield return null;
         }
-        
-        Destroy(gameObject);
+
         JamCoordinator.Instance.GameOver = true;
+        Destroy(gameObject);
     }
 
     protected void ObliteratedByOtherCreature() {
