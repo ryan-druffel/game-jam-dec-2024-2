@@ -60,7 +60,7 @@ public class JamCreature : JamGridActor
     }
 
     // dies after a time delay
-    protected IEnumerator FadeToDeath()
+    protected IEnumerator FadeToDeathAndLose()
     {
         // get the sprite renderer
         var renderer = transform.GetComponentInChildren<SpriteRenderer>();
@@ -73,13 +73,13 @@ public class JamCreature : JamGridActor
             renderer.color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
             yield return null;
         }
-
-        Debug.Log("I'm dead bruh");
+        
         Destroy(gameObject);
+        JamCoordinator.Instance.GameOver = true;
     }
 
     protected void ObliteratedByOtherCreature() {
-        StartCoroutine(FadeToDeath());
+        StartCoroutine(FadeToDeathAndLose());
     }
 
     // JamGridActor Implementation
