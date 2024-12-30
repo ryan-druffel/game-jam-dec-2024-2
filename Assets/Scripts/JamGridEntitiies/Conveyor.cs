@@ -67,7 +67,7 @@ public class Conveyor : JamGridActor
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         // snap to target position to be sure
         SnapToGrid();

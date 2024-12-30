@@ -249,7 +249,7 @@ public abstract class JamGridActor : MonoBehaviour
         SnapToGrid();
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         _scaledTime = Time.deltaTime * JamCoordinator.Instance.TimeScale;
     }
