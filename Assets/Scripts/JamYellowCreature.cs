@@ -31,8 +31,14 @@ public class JamYellowCreature : JamCreature
 
     public override void PreEvaluate()
     {
-        // move in a diamond pattern
+        // show intent
+        ShowInidcator();
+    }
+
+    public override void Step()
+    {
         CalculateZigZagMovement();
+        base.Step();
     }
 
     public override void PostEvaluate()

@@ -29,8 +29,14 @@ public class JamRedCreature : JamCreature
     }
 
     public override void PreEvaluate() {
-        // horizontal movement
+        // show intent
+        ShowInidcator();
+    }
+
+    public override void Step()
+    {
         CalculateSimpleMovement();
+        base.Step();
     }
 
     public override void PostEvaluate() 

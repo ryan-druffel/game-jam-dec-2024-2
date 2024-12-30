@@ -31,8 +31,15 @@ public class JamGreenCreature : JamCreature
     }
 
     public override void PreEvaluate() {
+        // show intent
+        ShowInidcator();
+    }
+
+    public override void Step()
+    {
         // rising diagonal movement
         CalculateDiamondMovement();
+        base.Step();
     }
 
     public override void PostEvaluate() 
@@ -56,9 +63,6 @@ public class JamGreenCreature : JamCreature
 
         // if the other way isn't free either, do nothing 
         if (!IsTileFree(_direction)) { StepIntent = () => { }; return; }
-
-        // show intent
-        ShowInidcator();
 
         // if it's free, schedule movement
         Vector2Int dir = _direction;

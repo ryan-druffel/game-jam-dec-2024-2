@@ -23,6 +23,8 @@ public class JamCreature : JamGridActor
         if (autoconnect) {
             gridData.ConnectToGrid(initGrid);
         }
+
+        HideIndicator();
     }
 
     public override bool IsOfType(string type)
@@ -163,9 +165,6 @@ public class JamCreature : JamGridActor
 
         // if the other way isn't free either, do nothing 
         if (!IsTileFree(_direction)) { StepIntent = () => { }; return; }
-
-        // show intent
-        ShowInidcator();
 
         // if it's free, schedule movement
         Vector2Int dir = _direction;

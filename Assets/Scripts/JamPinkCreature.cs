@@ -28,9 +28,16 @@ public class JamPinkCreature : JamCreature
         return priority;
     }
 
-    public override void PreEvaluate() {
-        // falling diagonal movement
+    public override void PreEvaluate()
+    {
+        // show intent
+        ShowInidcator();
+    }
+
+    public override void Step()
+    {
         CalculateSimpleMovement();
+        base.Step();
     }
 
     public override void PostEvaluate() 

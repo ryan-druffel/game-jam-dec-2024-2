@@ -31,7 +31,13 @@ public class JamCyanCreature : JamCreature
     public override void PreEvaluate()
     {
         // vertical movement
+        ShowInidcator();
+    }
+
+    public override void Step()
+    {
         CalculateSimpleMovement();
+        base.Step();
     }
 
     public override void PostEvaluate() 
