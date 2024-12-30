@@ -548,6 +548,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 394074093945788442, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1072085846557026582, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8
@@ -648,6 +652,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3265280325824923754, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3857099363662788551, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -655,6 +663,14 @@ PrefabInstance:
     - target: {fileID: 4898243042819792315, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_Name
       value: JamGrid
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128258291949455154, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8196038582541511119, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8374791162576072304, guid: 151914151f5bdc34987d6a97542d68ab, type: 3}
       propertyPath: m_LocalPosition.x

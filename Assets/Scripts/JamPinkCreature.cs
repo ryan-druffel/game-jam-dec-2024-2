@@ -53,5 +53,8 @@ public class JamPinkCreature : JamCreature
         }
     }
 
+    protected void CalculateCagedMovement()
+    {
 
+    }
 }
