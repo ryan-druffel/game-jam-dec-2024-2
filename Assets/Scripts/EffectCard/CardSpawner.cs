@@ -25,6 +25,7 @@ public class CardSpawner : MonoBehaviour
     {
         if (effectCardUI != null && effectCardUI.GridBox != null && effectCardUI.GridBox.GetCoordinator() != null) {
             CheckIfNewCardNeedsToSpawn();
+            CheckIfNewStageCards();
         }
     }
 
@@ -36,8 +37,31 @@ public class CardSpawner : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    GameObject testPrefab;
+    void CheckIfNewStageCards() {
+        JamCoordinator.GameStage stage = effectCardUI.GridBox.GetCoordinator().Stage;
+        switch (stage) {
+            case JamCoordinator.GameStage.RedCyan:
+                if (!redAndBlueSummoned) SpawnCards(redAndBlueStartCards);
+                redAndBlueSummoned = true;
+                break;
+            case JamCoordinator.GameStage.AddFood:
+                if (!addFoodSummoned) SpawnCards(addFoodStartCards);
+                addFoodSummoned = true;
+                break;
+            case JamCoordinator.GameStage.BlueYellow:
+                if (!blueYellowSummoned) SpawnCards(blueYellowStartCards);
+                blueYellowSummoned = true;
+                break;
+            case JamCoordinator.GameStage.AddConveyor:
+                if (!addConveyorSummoned) SpawnCards(addConveyorStartCards);
+                addConveyorSummoned = true;
+                break;
+            case JamCoordinator.GameStage.GreenPurple:
+                if (!greenPurpleSummoned) SpawnCards(greenPurpleStartCards);
+                greenPurpleSummoned = true;
+                break;
+        }
+    }
 
     void SpawnRandomCard(JamCoordinator.GameStage stage = 0) {
         GameObject prefab = null;
@@ -95,6 +119,30 @@ public class CardSpawner : MonoBehaviour
         }
         return newObject;
     }
+
+    void SpawnCards(List<GameObject> prefabList) {
+        foreach (GameObject prefab in prefabList) {
+            SpawnCard(prefab);
+        }
+    }
+
+    // Cards to spawn when entering stage
+    bool redAndBlueSummoned = false;
+    [SerializeField]
+    List<GameObject> redAndBlueStartCards;
+    bool addFoodSummoned = false;
+    [SerializeField]
+    List<GameObject> addFoodStartCards;
+    bool blueYellowSummoned = false;
+    [SerializeField]
+    List<GameObject> blueYellowStartCards;
+    bool addConveyorSummoned = false;
+    [SerializeField]
+    List<GameObject> addConveyorStartCards;
+    bool greenPurpleSummoned = false;
+    [SerializeField]
+    List<GameObject> greenPurpleStartCards;
+
 
     // Cards per State
     [SerializeField]
