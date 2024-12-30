@@ -60,9 +60,9 @@ public class JamCoordinator : MonoBehaviour
 
     [SerializeField]
     float stepTimer = 0;
-    void FixedUpdate()
+    void Update()
     {
-        stepTimer -= Time.fixedDeltaTime * timeScale;
+        stepTimer -= Time.deltaTime * timeScale;
     }
 
     // Update is called once per frame
@@ -74,7 +74,6 @@ public class JamCoordinator : MonoBehaviour
 
     IEnumerator StepLoop()
     {
-
         // initial pause
         while (stepTimer > stepPause + stepTime){
             yield return null;

@@ -10,6 +10,7 @@ public class JamCreature : JamGridActor
     protected bool autoconnect = false;
     public Vector2Int move;
     public int priority = 0;
+    protected float _scaledTime;
     
     protected void Awake()
     {
@@ -22,6 +23,11 @@ public class JamCreature : JamGridActor
     protected void Start()
     {
         SnapToGrid();
+    }
+
+    protected void Update()
+    {
+        _scaledTime = Time.deltaTime * JamCoordinator.Instance.TimeScale;
     }
 
     public override bool IsOfType(string type)
@@ -48,7 +54,7 @@ public class JamCreature : JamGridActor
         // move towards the destination until it is reached
         while (transform.position != dest)
         {
-            if (JamCoordinator.Instance.TimeScale > 0) transform.position = Vector3.MoveTowards(transform.position, dest, Time.deltaTime / JamCoordinator.Instance.StepDuration);
+            if (JamCoordinator.Instance.TimeScale > 0) transform.position = Vector3.MoveTowards(transform.position, dest, _scaledTime / JamCoordinator.Instance.StepDuration);
             yield return null;
         }
 
@@ -56,10 +62,27 @@ public class JamCreature : JamGridActor
         SnapToGrid();
     }
 
-    protected void ObliteratedByOtherCreature() {
-        JamCoordinator.Instance.GameOver = true;
-        // eliminate self
+    // dies after a time delay
+    IEnumerator FadeToDeath()
+    {
+        // get the sprite renderer
+        var renderer = transform.GetComponentInChildren<SpriteRenderer>();
+        Color currentColor = renderer.color;
+        float fadeAmount = renderer.color.a / JamCoordinator.Instance.StepDuration;
+
+        while (renderer.color.a > 0)
+        {
+            currentColor.a -= _scaledTime * fadeAmount;
+            renderer.color = currentColor;
+
+            yield return null;
+        }
+
         Destroy(gameObject);
+    }
+
+    protected void ObliteratedByOtherCreature() {
+        StartCoroutine(FadeToDeath());
     }
 
     // snap to the current position

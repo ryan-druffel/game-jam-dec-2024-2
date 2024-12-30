@@ -2,9 +2,9 @@ using System;
 using System.Linq;
 using UnityEngine;
 
-public class JamCyanCreature : JamCreature
+public class JamYellowCreature : JamCreature
 {
-    static string[] typeTags = { ActorTypes.Creature, ActorTypes.Cyan };
+    static string[] typeTags = { ActorTypes.Creature, ActorTypes.Yellow };
     public override bool IsOfType(string type)
     {
         return typeTags.Contains(type);
@@ -34,9 +34,9 @@ public class JamCyanCreature : JamCreature
         if (gridData.Grid != null) {
             // if i am sharing a cell with a cyan guy, i'm out peace ya'll
             var entities = gridData.Grid.GetCellEntities(gridData.Column, gridData.Row);
-            if (entities.Any(i => i.GetActor().IsOfType(ActorTypes.Red) && i.GetActor().IsOfType(ActorTypes.Creature)))
+            if (entities.Any(i => i.GetActor().IsOfType(ActorTypes.Blue) && i.GetActor().IsOfType(ActorTypes.Creature)))
             {
-                Debug.Log("grrr red bad grrr");
+                Debug.Log("grrr blue bad grrr");
                 ObliteratedByOtherCreature();
             }
         }
