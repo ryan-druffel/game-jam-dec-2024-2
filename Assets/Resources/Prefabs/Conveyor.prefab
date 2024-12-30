@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7786109342715838481}
   - component: {fileID: 6086687312699654981}
-  - component: {fileID: 3831883882347440164}
   m_Layer: 0
   m_Name: Conveyor
   m_TagString: Untagged
@@ -56,22 +55,6 @@ MonoBehaviour:
   conveyorSprite: {fileID: 440962105740970872}
   countdownSprite: {fileID: 7150448259981355285}
   pushDir: {x: 1, y: 0}
---- !u!114 &3831883882347440164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2132087810866281182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f9a259d16a8554285e4a304ee51c92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coordinator: {fileID: 0}
-  followMode: 0
-  spriteRenderer: {fileID: 440962105740970872}
-  colorParameters: []
 --- !u!1 &5990677178649466458
 GameObject:
   m_ObjectHideFlags: 0

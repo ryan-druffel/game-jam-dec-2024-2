@@ -472,7 +472,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CyanGuy_0: 323373122564314020
+      CyanGuy_1: 5306253117485472365
+      CyanGuy_10: -4636181428878054814
+      CyanGuy_11: 5203319188167186309
+      CyanGuy_12: -1943163549009354365
+      CyanGuy_13: -2112091412975030668
+      CyanGuy_2: 7899191843374515907
+      CyanGuy_3: 9054071605142361310
+      CyanGuy_4: 5403514384016304522
+      CyanGuy_5: -8583192507338468637
+      CyanGuy_6: -1987244766669562200
+      CyanGuy_7: -6627365913892015714
+      CyanGuy_8: 5317359040596158748
+      CyanGuy_9: 8992428206518479829
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
