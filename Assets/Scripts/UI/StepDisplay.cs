@@ -13,6 +13,6 @@ public class StepDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<TMP_Text>() && effectCardUI.GridBox && effectCardUI.GridBox.GetCoordinator()) GetComponent<TMP_Text>().text = "SCORE: " + effectCardUI.GridBox.GetCoordinator().StepCount;
+        if (GetComponent<TMP_Text>() && effectCardUI.GridBox && effectCardUI.GridBox.GetCoordinator()) GetComponent<TMP_Text>().text = "STEP: " + effectCardUI.GridBox.GetCoordinator().StepCount;
     }
 }

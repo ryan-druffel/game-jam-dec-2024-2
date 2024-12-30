@@ -92,6 +92,9 @@ public class EffectCardUI : MonoBehaviour
                 break;
         }
 
+        // Shift overflow cards to spots
+        ShiftOverflowCardsUp();
+
         // Move Cards to Slots
         for (int i = 0; i < effectCardsSpots.Count; i++) {
             if (i < effectCards.Count && effectCards[i] != null && effectCardsSpots[i] != null) {
@@ -178,27 +181,53 @@ public class EffectCardUI : MonoBehaviour
         return new Vector2Int(col, row);
     }
 
-    void AddCard(EffectCard card) {
+    public void AddCard(EffectCard card) {
         for (int i = 0; i < effectCards.Count; i++) {
             if (effectCards[i] == null) {
                 effectCards[i] = card;
+                return;
             }
         }
         effectCards.Add(card);
     }
 
-    bool SpaceForNewCard() {
-        return CardCount() <= effectCardsSpots.Count;
+    public bool SpaceForNewCard() {
+        Debug.Log(CardCount() + " | " + effectCardsSpots.Count);
+        return CardCount() < effectCardsSpots.Count;
     }
 
-    int CardCount() {
+    public int CardCount() {
         int count = 0;
         for (int i = 0; i < effectCards.Count; i++) {
-            if (effectCards[i] == null) {
+            if (effectCards[i] != null) {
                 count ++;
             }
         }
         return count;
+    }
+
+    public void ShiftOverflowCardsUp() {
+        // if more cards refs in list than spots
+        if (effectCards.Count > effectCardsSpots.Count) {
+            // shift up
+            for (int i = effectCardsSpots.Count; i < effectCards.Count; i++) {
+                // if card is here, try to place it higher
+                if (effectCards[i] != null) {
+                    bool shifted = false;
+                    for (int j = 0; j < effectCards.Count && j < effectCardsSpots.Count && !shifted; j++) {
+                        if (effectCards[j] == null) {
+                            effectCards[j] = effectCards[i];
+                            effectCards[i] = null;
+                            shifted = true;
+                        }
+                    }
+                }
+            }
+            // trim excess
+            if (CardCount() <= effectCardsSpots.Count) {
+                effectCards.TrimExcess();
+            }
+        }
     }
 }
 

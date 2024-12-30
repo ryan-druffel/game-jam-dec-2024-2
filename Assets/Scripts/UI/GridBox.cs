@@ -25,7 +25,6 @@ public class GridBox : MonoBehaviour
 
     void Update() {
         if (GetGrid() != null) {
-            Debug.Log("Getting Called");
             float targetHeight = display.rect.width * grid.Height / grid.Width;
             // display.sizeDelta = new Vector2(display.sizeDelta.x, targetHeight - display.rect.height);
             display.sizeDelta = new Vector2(display.sizeDelta.x, targetHeight);
